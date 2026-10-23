@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Seoul Ember — Story / table tent (concept)</title>
+<link rel="stylesheet" href="common.css">
+<style>
+.page{position:relative;width:1080px;height:1920px;overflow:hidden;background:
+  radial-gradient(900px 700px at 50% 70%, rgba(255,91,34,.16), transparent 65%), var(--coal)}
+.photo{position:absolute;left:0;right:0;top:0;height:1000px;background:url(img/porkbelly.jpg) center 45%/cover no-repeat;
+  -webkit-mask-image:linear-gradient(180deg,#000 0%,#000 62%,transparent 100%);mask-image:linear-gradient(180deg,#000 0%,#000 62%,transparent 100%)}
+.photo::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(19,17,15,.75) 0%,rgba(19,17,15,0) 26%)}
+.bar{position:absolute;z-index:3;left:72px;right:72px;top:150px;display:flex;justify-content:space-between;align-items:center}
+.brand{display:flex;align-items:center;gap:16px}
+.brand .seal{width:60px;height:60px;font-size:38px;transform:rotate(-3deg)}
+.brand .wm{font-size:44px}
+.chip{font-size:17px;letter-spacing:.22em;text-transform:uppercase;font-weight:600;border:1.5px solid rgba(241,232,218,.6);border-radius:999px;padding:12px 22px;background:rgba(19,17,15,.35);backdrop-filter:blur(4px)}
+.chip b{font-family:var(--ko-sans);letter-spacing:.04em;color:var(--ember2);margin-right:10px}
+.head{position:absolute;z-index:3;left:72px;right:72px;top:790px}
+.say{font-size:17px;letter-spacing:.26em;text-transform:uppercase;color:var(--ember2);font-weight:600;margin-bottom:22px}
+.ko{font-family:var(--ko-serif);font-weight:900;font-size:110px;line-height:1.12;letter-spacing:-.02em}
+.ko em{font-style:normal;color:var(--ember)}
+.gloss{font-family:var(--en-serif);font-style:italic;font-size:38px;line-height:1.3;color:var(--ash2);margin-top:26px;max-width:880px}
+.card{position:absolute;z-index:3;left:72px;right:72px;top:1372px;border-radius:24px;padding:34px 38px;background:linear-gradient(135deg,rgba(255,91,34,.2),rgba(255,91,34,.05));border:1.5px solid rgba(255,91,34,.65)}
+.card .t{display:flex;align-items:baseline;justify-content:space-between}
+.card .t .k{font-family:var(--ko-serif);font-weight:700;font-size:46px}
+.card .t .p{font-family:var(--en-serif);font-size:76px;line-height:1}
+.card .e{font-family:var(--en-serif);font-style:italic;font-size:32px;color:var(--ember2);margin-top:2px}
+.pills{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.pills span{font-family:var(--ko-sans);font-size:20px;font-weight:600;padding:9px 16px;border-radius:999px;background:rgba(19,17,15,.6);border:1px solid var(--line)}
+.pills span i{font-family:var(--en-sans);font-style:normal;font-weight:400;color:var(--ash2);margin-left:6px}
+.cta{position:absolute;z-index:3;left:72px;right:72px;top:1712px;display:flex;justify-content:space-between;align-items:center}
+.cta .btn{background:var(--ember);color:var(--coal);font-weight:700;font-size:24px;letter-spacing:.12em;text-transform:uppercase;padding:20px 30px;border-radius:999px}
+.cta .btn b{font-family:var(--ko-sans);letter-spacing:0;margin-left:10px}
+.cta .concept{font-size:13px;text-align:right;line-height:1.6}
+</style>
+</head>
+<body>
+<div class="page grain">
+  <div class="photo"></div>
+  <div class="bar">
+    <div class="brand"><div class="seal">숯</div><div class="wm wordmark">Seoul Ember</div></div>
+    <div class="chip"><b>오늘의 불판</b>Tonight</div>
+  </div>
+  <div class="head">
+    <div class="say">An old Korean saying</div>
+    <div class="ko">둘이 먹다<br>하나 죽어도<br><em>모를 맛</em></div>
+    <div class="gloss">“So good, you wouldn’t notice if your dining partner dropped dead.” Bring a friend anyway.</div>
+  </div>
+  <div class="card">
+    <div class="t"><span class="k">엠버 모둠 세트</span><span class="p">£58</span></div>
+    <div class="e">The Ember Set for two</div>
+    <div class="pills"><span>삼겹살<i>pork belly</i></span><span>양념갈비<i>short rib</i></span><span>차돌박이<i>brisket</i></span><span>된장찌개<i>stew</i></span><span>공기밥<i>rice ×2</i></span></div>
+  </div>
+  <div class="cta">
+    <div class="btn">Book a grill <b>예약하기</b></div>
+    <div class="concept">Concept project<br>fictional restaurant · Hangul House</div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&family=Noto+Serif+KR:wght@500;600;700;900&display=block');
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css');
+:root{
+  --coal:#13110F; --coal2:#1B1815; --coal3:#24201C;
+  --ember:#FF5B22; --ember2:#FF8A3D; --gold:#D9A866;
+  --ash:#F1E8DA; --ash2:rgba(241,232,218,.72); --ash3:rgba(241,232,218,.45);
+  --line:rgba(241,232,218,.16);
+  --ko-serif:'Noto Serif KR', serif; --ko-sans:'Pretendard Variable','Pretendard',sans-serif;
+  --ko-display:'Black Han Sans', sans-serif;
+  --en-serif:'Instrument Serif', serif; --en-sans:'Inter', sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--coal);}
+body{color:var(--ash);font-family:'Inter','Pretendard Variable',sans-serif;-webkit-font-smoothing:antialiased;}
+.grain::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.22;mix-blend-mode:overlay;
+ background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .55 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");}
+.seal{display:inline-flex;align-items:center;justify-content:center;background:var(--ember);color:var(--coal);
+ font-family:var(--ko-display);border-radius:6px;line-height:1}
+.wordmark{font-family:var(--en-serif);letter-spacing:.02em;line-height:1}
+.concept{font-family:var(--en-sans);font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:var(--ash3)}

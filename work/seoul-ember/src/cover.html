@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Seoul Ember — cover (concept)</title>
+<link rel="stylesheet" href="common.css">
+<style>
+.page{position:relative;width:1600px;height:1000px;overflow:hidden;background:
+  radial-gradient(900px 620px at 30% 18%, rgba(255,150,80,.16), transparent 70%),
+  radial-gradient(700px 500px at 82% 40%, rgba(255,91,34,.10), transparent 70%),
+  linear-gradient(180deg,#2e2925 0%,#25211d 72%,#14110f 100%)}
+.table{position:absolute;left:0;right:0;bottom:0;height:250px;background:linear-gradient(180deg,#110f0d 0%,#0b0a09 100%);border-top:1px solid rgba(241,232,218,.06)}
+.table::before{content:"";position:absolute;left:0;right:0;top:0;height:40px;background:linear-gradient(180deg,rgba(0,0,0,.45),transparent)}
+.piece{position:absolute;display:block;border-radius:3px;outline:1px solid rgba(255,240,225,.09);outline-offset:-1px}
+.menu{left:118px;top:150px;width:478px;transform:rotate(-5deg);box-shadow:0 40px 60px rgba(0,0,0,.55),0 8px 18px rgba(0,0,0,.45)}
+.poster{left:612px;top:86px;width:468px;transform:rotate(1.6deg);box-shadow:0 34px 50px rgba(0,0,0,.6),0 6px 14px rgba(0,0,0,.5)}
+.pin{position:absolute;width:14px;height:14px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#ff9a6a,#c8401a);box-shadow:0 3px 5px rgba(0,0,0,.6);z-index:3}
+.phone{position:absolute;left:1146px;top:268px;width:268px;height:536px;border-radius:44px;background:#070707;padding:11px;transform:rotate(5deg);
+  box-shadow:0 40px 60px rgba(0,0,0,.65),0 0 0 2px #2b2b2b inset,0 0 0 1px #3a3a3a}
+.phone img{width:100%;height:100%;object-fit:cover;border-radius:34px;display:block}
+.phone::after{content:"";position:absolute;top:20px;left:50%;width:78px;height:22px;margin-left:-39px;border-radius:12px;background:#070707}
+.cap{position:absolute;left:72px;bottom:58px;z-index:5}
+.cap .row{display:flex;align-items:center;gap:16px}
+.cap .seal{width:46px;height:46px;font-size:29px;transform:rotate(-3deg)}
+.cap .wm{font-size:40px}
+.cap .d{margin-top:12px;font-size:19px;color:var(--ash2);letter-spacing:.02em}
+.cap .d b{color:var(--ash);font-weight:600}
+.tagc{position:absolute;right:64px;bottom:64px;z-index:5;text-align:right}
+.tagc .chip{display:inline-block;font-size:14px;letter-spacing:.24em;text-transform:uppercase;font-weight:600;color:var(--ember2);border:1.5px solid rgba(255,138,61,.6);border-radius:999px;padding:9px 16px}
+.tagc .s{margin-top:10px;font-size:14px;letter-spacing:.18em;text-transform:uppercase;color:var(--ash3)}
+</style>
+</head>
+<body>
+<div class="page grain">
+  <div class="table"></div>
+  <img class="piece menu" src="img/c_menu.jpg" alt="">
+  <img class="piece poster" src="img/c_poster.jpg" alt="">
+  <div class="pin" style="left:838px;top:92px"></div>
+  <div class="phone"><img src="img/c_story.jpg" alt=""></div>
+  <div class="cap">
+    <div class="row"><div class="seal">숯</div><div class="wm wordmark">Seoul Ember</div></div>
+    <div class="d"><b>Bilingual Korean–English</b> menu, event poster &amp; Instagram story for a Korean BBQ in London</div>
+  </div>
+  <div class="tagc"><div class="chip">Concept project</div><div class="s">Fictional brand · Hangul House</div></div>
+</div>
+</body>
+</html>

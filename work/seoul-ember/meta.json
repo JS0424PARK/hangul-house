@@ -1,0 +1,12 @@
+{
+  "slug": "seoul-ember",
+  "title": "Seoul Ember — bilingual menu, poster & story",
+  "client_fictional": "Seoul Ember (fictional Korean charcoal BBQ restaurant in London)",
+  "type": "Print & social design (bilingual Korean–English)",
+  "summary_en": "Concept project: a bilingual Korean–English dinner menu (A3), a 치맥 Night event poster (A2) and an Instagram story / table-tent promo for a fictional Korean BBQ in London. Native Korean dish names, natural Korean copy and short appetizing English descriptions.",
+  "tags": ["menu design", "poster", "instagram story", "bilingual", "Korean typography", "restaurant", "print"],
+  "live": false,
+  "images": ["cover.png", "shot-1.png", "shot-2.png", "shot-3.png"],
+  "downloads": ["seoul-ember-menu-A3.pdf", "seoul-ember-poster-A2.pdf"],
+  "notes": "Concept project for a fictional brand. Food photos are AI-generated (no people). Sources in src/ (menu.html, poster.html, story.html, cover.html)."
+}

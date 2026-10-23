@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Seoul Ember — Menu (concept)</title>
+<link rel="stylesheet" href="common.css">
+<style>
+@page{size:1754px 2480px;margin:0}
+.page{position:relative;width:1754px;height:2480px;overflow:hidden;background:
+  radial-gradient(1200px 700px at 85% 108%, rgba(255,91,34,.16), transparent 60%),
+  radial-gradient(900px 600px at -10% 40%, rgba(217,168,102,.06), transparent 60%), var(--coal);}
+/* HERO */
+.hero{position:relative;height:550px;overflow:hidden}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 58%;filter:saturate(1.05) contrast(1.05)}
+.hero::before{content:"";position:absolute;inset:0;z-index:1;background:
+  linear-gradient(180deg, rgba(19,17,15,.78) 0%, rgba(19,17,15,.15) 30%, rgba(19,17,15,.25) 55%, var(--coal) 100%),
+  linear-gradient(90deg, rgba(19,17,15,.85) 0%, rgba(19,17,15,.2) 55%, transparent 100%);}
+.top{position:absolute;z-index:2;left:110px;right:110px;top:76px;display:flex;justify-content:space-between;align-items:flex-start}
+.brand{display:flex;align-items:center;gap:26px}
+.brand .seal{width:96px;height:96px;font-size:60px;transform:rotate(-3deg);box-shadow:0 10px 30px rgba(255,91,34,.35)}
+.brand .wm{font-size:72px;color:var(--ash)}
+.brand .sub{font-family:var(--ko-sans);font-size:22px;font-weight:500;letter-spacing:.32em;color:var(--ash2);margin-top:10px}
+.top .meta{text-align:right;font-size:17px;letter-spacing:.24em;text-transform:uppercase;color:var(--ash2);line-height:1.9}
+.top .meta b{color:var(--ember2);font-weight:600}
+.headline{position:absolute;z-index:2;left:110px;bottom:56px}
+.headline .ko{font-family:var(--ko-serif);font-weight:900;font-size:116px;line-height:1;letter-spacing:-.02em}
+.headline .ko em{font-style:normal;color:var(--ember)}
+.headline .en{font-family:var(--en-serif);font-style:italic;font-size:44px;color:var(--ash2);margin-top:18px}
+/* COLUMNS */
+.cols{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:96px;padding:30px 110px 0}
+.sec-h{display:flex;align-items:baseline;gap:20px;padding-bottom:20px;border-bottom:2px solid var(--ember);margin-bottom:28px}
+.sec-h .ko{font-family:var(--ko-serif);font-weight:700;font-size:54px;line-height:1}
+.sec-h .en{font-family:var(--en-serif);font-style:italic;font-size:38px;color:var(--ember2)}
+.sec-h .note{margin-left:auto;font-size:15px;letter-spacing:.16em;text-transform:uppercase;color:var(--ash3);text-align:right;line-height:1.5}
+.item{margin-bottom:25px}
+.l1{display:flex;align-items:baseline;gap:16px}
+.l1 .ko{font-family:var(--ko-serif);font-weight:600;font-size:38px;line-height:1.1;white-space:nowrap}
+.l1 .ro{font-size:15px;letter-spacing:.2em;text-transform:uppercase;color:var(--ash3);white-space:nowrap}
+.l1 .dots{flex:1;border-bottom:2px dotted var(--line);transform:translateY(-8px)}
+.l1 .price{font-family:var(--en-serif);font-size:40px;color:var(--ash);white-space:nowrap}
+.item .en{font-family:var(--en-serif);font-style:italic;font-size:31px;color:var(--ember2);margin-top:4px}
+.item .desc{font-size:19.5px;line-height:1.45;color:var(--ash2);font-weight:300;margin-top:4px;max-width:96%}
+.set{position:relative;margin-top:22px;margin-bottom:0;padding:30px 34px 30px;border:1.5px solid rgba(255,91,34,.6);border-radius:14px;
+  background:linear-gradient(135deg, rgba(255,91,34,.14), rgba(255,91,34,.03))}
+.set .tag{position:absolute;top:-16px;left:30px;background:var(--ember);color:var(--coal);font-weight:700;font-size:14px;letter-spacing:.2em;text-transform:uppercase;padding:7px 14px;border-radius:4px}
+.set .l1 .ko{font-size:40px}
+.set .desc{max-width:100%}
+.mini .row{display:flex;align-items:baseline;gap:14px;padding:11px 0;border-bottom:1px solid var(--line)}
+.mini .row:last-child{border-bottom:0}
+.mini .ko{font-family:var(--ko-serif);font-weight:600;font-size:30px;white-space:nowrap}
+.mini .en{font-family:var(--en-serif);font-style:italic;font-size:27px;color:var(--ash2);white-space:nowrap}
+.mini .sp{flex:1}
+.mini .price{font-family:var(--en-serif);font-size:32px;white-space:nowrap}
+.mini .small{font-size:15px;color:var(--ash3);letter-spacing:.06em;white-space:nowrap}
+.gap{height:34px}
+/* BOTTOM */
+.bottom{position:relative;z-index:2;margin:50px 110px 0;display:grid;grid-template-columns:1.35fr 1fr;gap:70px;align-items:stretch}
+.drinks .mini .row{padding:11px 0}
+.drink-grid{display:grid;grid-template-columns:1fr 1fr;column-gap:46px}
+.ssam{border-radius:14px;background:var(--coal2);padding:30px 34px;border:1px solid var(--line)}
+.ssam .t{display:flex;align-items:baseline;gap:14px}
+.ssam .t .ko{font-family:var(--ko-serif);font-weight:700;font-size:34px}
+.ssam .t .en{font-family:var(--en-serif);font-style:italic;font-size:30px;color:var(--ember2)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:22px}
+.step{text-align:center}
+.step .n{width:52px;height:52px;border-radius:50%;margin:0 auto 10px;border:1.5px solid var(--ember);color:var(--ember);display:flex;align-items:center;justify-content:center;font-family:var(--en-serif);font-size:28px}
+.step .ko{font-family:var(--ko-sans);font-weight:600;font-size:21px}
+.step .en{font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:var(--ash3);margin-top:4px}
+.ssam .line{margin-top:20px;padding-top:16px;border-top:1px solid var(--line);font-family:var(--ko-sans);font-size:20px;color:var(--ash2)}
+.ssam .line i{font-family:var(--en-serif);font-size:22px;color:var(--ash3)}
+.foot{position:absolute;z-index:2;left:110px;right:110px;bottom:56px;display:flex;justify-content:space-between;align-items:flex-end;padding-top:26px;border-top:1px solid var(--line)}
+.foot .l{font-size:17px;line-height:1.7;color:var(--ash2)}
+.foot .l .ko{font-family:var(--ko-sans);color:var(--ash)}
+.foot .r{text-align:right}
+.foot .r .wordmark{font-size:34px}
+</style>
+</head>
+<body>
+<div class="page grain">
+  <header class="hero">
+    <img src="img/galbi.jpg" alt="">
+    <div class="top">
+      <div class="brand">
+        <div class="seal">숯</div>
+        <div>
+          <div class="wm wordmark">Seoul Ember</div>
+          <div class="sub">서울 엠버 · 숯불 고깃집</div>
+        </div>
+      </div>
+      <div class="meta"><b>Charcoal Korean BBQ</b><br>London · Est. 2026<br>Dinner Menu</div>
+    </div>
+    <div class="headline">
+      <div class="ko">진짜 <em>숯불</em>에 굽습니다</div>
+      <div class="en">Grilled at your table over real charcoal, the Seoul way.</div>
+    </div>
+  </header>
+
+  <main class="cols">
+    <section>
+      <div class="sec-h"><span class="ko">고기</span><span class="en">From the Grill</span><span class="note">Per portion · 180 g<br>2 portions minimum</span></div>
+      <div class="item">
+        <div class="l1"><span class="ko">삼겹살</span><span class="ro">samgyeopsal</span><span class="dots"></span><span class="price">£16</span></div>
+        <div class="en">Pork Belly</div>
+        <div class="desc">Thick-cut, rind-on pork belly, grilled until the edges crackle. Wrap it in lettuce with ssamjang and garlic.</div>
+      </div>
+      <div class="item">
+        <div class="l1"><span class="ko">목살</span><span class="ro">moksal</span><span class="dots"></span><span class="price">£16</span></div>
+        <div class="en">Pork Collar</div>
+        <div class="desc">Juicy, well-marbled pork neck with a flaky sea-salt finish. Leaner than belly, just as rich.</div>
+      </div>
+      <div class="item">
+        <div class="l1"><span class="ko">양념갈비</span><span class="ro">yangnyeom galbi</span><span class="dots"></span><span class="price">£26</span></div>
+        <div class="en">Marinated Beef Short Rib</div>
+        <div class="desc">Bone-in short rib, butterflied and soaked for 48 hours in soy, Korean pear and garlic. Sticky, smoky, sweet.</div>
+      </div>
+      <div class="item">
+        <div class="l1"><span class="ko">차돌박이</span><span class="ro">chadolbagi</span><span class="dots"></span><span class="price">£19</span></div>
+        <div class="en">Shaved Beef Brisket</div>
+        <div class="desc">Paper-thin brisket that sears in seconds. Dip in sesame oil and salt, eat it hot off the grill.</div>
+      </div>
+      <div class="item">
+        <div class="l1"><span class="ko">불고기</span><span class="ro">bulgogi</span><span class="dots"></span><span class="price">£19</span></div>
+        <div class="en">Sweet Soy Rib-eye</div>
+        <div class="desc">Thinly sliced rib-eye in a sweet soy and sesame marinade, with onion and spring onion.</div>
+      </div>
+      <div class="set item">
+        <span class="tag">For two</span>
+        <div class="l1"><span class="ko">엠버 모둠 세트</span><span class="dots"></span><span class="price">£58</span></div>
+        <div class="en">The Ember Set</div>
+        <div class="desc">삼겹살 Pork Belly, 양념갈비 Short Rib and 차돌박이 Brisket, with 된장찌개 Soybean Stew, two bowls of rice and a full ssam basket.</div>
+      </div>
+    </section>
+
+    <section>
+      <div class="sec-h"><span class="ko">식사</span><span class="en">Stews &amp; Noodles</span><span class="note">Served with rice<br>unless noted</span></div>
+      <div class="item">
+        <div class="l1"><span class="ko">김치찌개</span><span class="ro">kimchi-jjigae</span><span class="dots"></span><span class="price">£13</span></div>
+        <div class="en">Aged Kimchi Stew</div>
+        <div class="desc">Six-month-aged kimchi, pork and soft tofu, bubbling in a stone pot. Spicy, sour, deeply comforting.</div>
+      </div>
+      <div class="item">
+        <div class="l1"><span class="ko">된장찌개</span><span class="ro">doenjang-jjigae</span><span class="dots"></span><span class="price">£12</span></div>
+        <div class="en">Soybean Paste Stew</div>
+        <div class="desc">Earthy fermented soybean broth with courgette, potato, tofu and a little chilli.</div>
+      </div>
+      <div class="item">
+        <div class="l1"><span class="ko">물냉면</span><span class="ro">mul-naengmyeon</span><span class="dots"></span><span class="price">£12</span></div>
+        <div class="en">Icy Buckwheat Noodles</div>
+        <div class="desc">Chewy buckwheat noodles in a chilled, tangy beef broth. The classic way to finish a BBQ. No rice.</div>
+      </div>
+      <div class="item">
+        <div class="l1"><span class="ko">비빔냉면</span><span class="ro">bibim-naengmyeon</span><span class="dots"></span><span class="price">£12</span></div>
+        <div class="en">Spicy Cold Noodles</div>
+        <div class="desc">Buckwheat noodles tossed in a sweet-hot gochujang sauce with pear and egg. No rice.</div>
+      </div>
+
+      <div class="gap"></div>
+      <div class="sec-h"><span class="ko">사이드</span><span class="en">Sides</span></div>
+      <div class="mini">
+        <div class="row"><span class="ko">계란찜</span><span class="en">Fluffy Steamed Egg</span><span class="sp"></span><span class="price">£6</span></div>
+        <div class="row"><span class="ko">파전</span><span class="en">Spring Onion Pancake</span><span class="sp"></span><span class="price">£10</span></div>
+        <div class="row"><span class="ko">김치</span><span class="en">House Kimchi</span><span class="sp"></span><span class="price">£4</span></div>
+        <div class="row"><span class="ko">쌈 채소</span><span class="en">Ssam Basket</span><span class="small">lettuce · perilla · garlic</span><span class="sp"></span><span class="price">£4</span></div>
+        <div class="row"><span class="ko">공기밥</span><span class="en">Steamed Rice</span><span class="sp"></span><span class="price">£3</span></div>
+      </div>
+    </section>
+  </main>
+
+  <div class="bottom">
+    <section class="drinks">
+      <div class="sec-h"><span class="ko">음료</span><span class="en">Drinks</span></div>
+      <div class="drink-grid mini">
+        <div>
+          <div class="row"><span class="ko">소주</span><span class="en">Soju</span><span class="small">360 ml</span><span class="sp"></span><span class="price">£14</span></div>
+          <div class="row"><span class="ko">과일소주</span><span class="en">Peach · Grape</span><span class="sp"></span><span class="price">£15</span></div>
+          <div class="row"><span class="ko">막걸리</span><span class="en">Rice Wine</span><span class="small">750 ml</span><span class="sp"></span><span class="price">£18</span></div>
+        </div>
+        <div>
+          <div class="row"><span class="ko">생맥주</span><span class="en">Draught Lager</span><span class="sp"></span><span class="price">£6.50</span></div>
+          <div class="row"><span class="ko">식혜</span><span class="en">Sweet Rice Punch</span><span class="sp"></span><span class="price">£4.50</span></div>
+          <div class="row"><span class="ko">보리차</span><span class="en">Barley Tea</span><span class="small">refills</span><span class="sp"></span><span class="price">£2.50</span></div>
+        </div>
+      </div>
+    </section>
+    <aside class="ssam">
+      <div class="t"><span class="ko">쌈 싸 먹는 법</span><span class="en">How to ssam</span></div>
+      <div class="steps">
+        <div class="step"><div class="n">1</div><div class="ko">상추</div><div class="en">Lettuce</div></div>
+        <div class="step"><div class="n">2</div><div class="ko">고기 한 점</div><div class="en">Meat</div></div>
+        <div class="step"><div class="n">3</div><div class="ko">쌈장 조금</div><div class="en">Ssamjang</div></div>
+        <div class="step"><div class="n">4</div><div class="ko">마늘 한 쪽</div><div class="en">Garlic</div></div>
+      </div>
+      <div class="line">돌돌 말아서 한입에 쏙. <i>Roll it up, one bite.</i></div>
+    </aside>
+  </div>
+
+  <footer class="foot">
+    <div class="l"><span class="ko">고기는 저희가 테이블에서 직접 구워 드려요.</span><br>Our team grills at your table. Please tell us about any allergies.<br>A discretionary 12.5% service charge will be added to your bill.</div>
+    <div class="r"><div class="wordmark">Seoul Ember</div><div class="concept" style="margin-top:10px">Concept project · fictional restaurant · Hangul House</div></div>
+  </footer>
+</div>
+</body>
+</html>

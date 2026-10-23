@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>Nordic Oat — Korean carousel (concept)</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{
+  --oat:#F3EDE2; --oat2:#E9E0D0; --navy:#1C2A44; --ink:#2B3446; --blue:#A9CDEB; --blue2:#5E8FC4; --sage:#DCE5D4; --sage2:#9BB08F;
+  --butter:#FFD95E; --white:#FFFDF9; --line:#D8CFBF;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#888;display:flex;flex-direction:column;gap:40px;align-items:flex-start;padding:40px}
+.slide{width:1080px;height:1350px;position:relative;overflow:hidden;background:var(--oat);color:var(--navy);
+  font-family:'Pretendard Variable',Pretendard,sans-serif;letter-spacing:-0.025em;word-break:keep-all;line-height:1.35}
+.hl{background:linear-gradient(transparent 60%, var(--butter) 60%, var(--butter) 92%, transparent 92%);padding:0 4px}
+.top{position:absolute;left:72px;right:72px;top:60px;display:flex;justify-content:space-between;align-items:center;z-index:5}
+.brand{display:flex;align-items:center;gap:14px;font-family:Inter,sans-serif;font-weight:800;font-size:26px;letter-spacing:0.22em;color:var(--navy)}
+.oat{width:16px;height:30px;border-radius:50%;background:var(--navy);position:relative;transform:rotate(18deg)}
+.oat::after{content:"";position:absolute;left:7px;top:5px;width:2px;height:20px;background:var(--oat);border-radius:2px}
+.pg{font-family:Inter,sans-serif;font-weight:600;font-size:24px;color:var(--navy);opacity:.7;letter-spacing:.04em}
+.handle{position:absolute;left:72px;bottom:56px;font-family:Inter,sans-serif;font-weight:600;font-size:24px;color:var(--navy);opacity:.6;z-index:5}
+.next{position:absolute;right:72px;bottom:46px;z-index:5;background:var(--navy);color:var(--white);font-size:28px;font-weight:700;padding:16px 28px;border-radius:999px}
+h1,h2{font-weight:800;letter-spacing:-0.045em;line-height:1.2}
+h2{font-size:84px}
+.kicker{display:inline-block;font-size:30px;font-weight:700;color:var(--blue2);margin-bottom:22px;letter-spacing:-0.01em}
+
+/* 1 cover */
+#s1 .photo{position:absolute;left:0;right:0;bottom:0;height:740px;background:url(img/latte.jpg) center 62%/cover}
+#s1 .photo::before{content:"";position:absolute;inset:0;background:linear-gradient(var(--oat) 0%, rgba(243,237,226,.0) 32%)}
+#s1 .txt{position:absolute;left:72px;right:72px;top:168px}
+#s1 .chip{display:inline-flex;gap:12px;align-items:center;background:var(--navy);color:var(--white);font-size:28px;font-weight:700;padding:12px 22px;border-radius:999px;margin-bottom:34px}
+#s1 .chip b{font-family:Inter,sans-serif;font-weight:800;color:var(--butter);letter-spacing:.06em}
+#s1 h1{font-size:94px}
+#s1 .sub{font-size:36px;font-weight:500;margin-top:28px;color:var(--ink)}
+
+/* 2 problem */
+#s2{background:var(--blue)}
+#s2 .txt{position:absolute;left:72px;right:72px;top:170px}
+#s2 .cards{position:absolute;left:72px;right:72px;top:600px;display:flex;flex-direction:column;gap:22px}
+#s2 .card{background:var(--white);border-radius:28px;padding:30px 36px;display:flex;align-items:center;gap:30px;box-shadow:0 10px 0 rgba(28,42,68,.08)}
+#s2 .card .k{flex:0 0 210px;font-size:38px;font-weight:800}
+#s2 .card .v{font-size:34px;font-weight:500;color:var(--ink)}
+#s2 .card .x{margin-left:auto;font-family:Inter;font-weight:800;font-size:34px;color:#C8573F}
+#s2 .concl{position:absolute;left:72px;right:72px;top:1060px;font-size:52px;font-weight:800}
+
+/* 3 points */
+#s3 .txt{position:absolute;left:72px;right:72px;top:170px}
+#s3 .pts{position:absolute;left:72px;right:72px;top:462px;display:flex;flex-direction:column;gap:0}
+#s3 .pt{display:flex;gap:34px;padding:34px 0;border-top:3px solid var(--navy)}
+#s3 .pt:last-child{border-bottom:3px solid var(--navy)}
+#s3 .num{font-family:'Instrument Serif',serif;font-size:110px;line-height:.9;color:var(--blue2);flex:0 0 120px}
+#s3 .pt h3{font-size:52px;font-weight:800;letter-spacing:-0.04em;margin-bottom:12px}
+#s3 .pt p{font-size:34px;font-weight:500;color:var(--ink);line-height:1.45}
+
+/* 4 recipe */
+#s4{background:var(--sage)}
+#s4 .txt{position:absolute;left:72px;top:170px;right:420px}
+#s4 .circ{position:absolute;right:64px;top:140px;width:340px;height:340px;border-radius:50%;background:url(img/latte.jpg) 52% 58%/180%;border:10px solid var(--white)}
+#s4 .steps{position:absolute;left:72px;right:72px;top:530px;display:flex;flex-direction:column;gap:22px}
+#s4 .st{background:var(--white);border-radius:28px;padding:30px 36px;display:flex;gap:30px;align-items:flex-start}
+#s4 .badge{flex:0 0 128px;text-align:center;font-family:Inter;font-weight:800;font-size:24px;letter-spacing:.08em;background:var(--navy);color:var(--white);padding:10px 16px;border-radius:12px;margin-top:6px}
+#s4 .st h3{font-size:44px;font-weight:800;margin-bottom:8px;letter-spacing:-0.04em}
+#s4 .st p{font-size:31px;font-weight:500;color:var(--ink);line-height:1.45}
+#s4 .tip{position:absolute;left:72px;right:72px;top:1180px;font-size:31px;font-weight:600;color:var(--navy);display:flex;gap:16px;align-items:center}
+#s4 .tip b{font-family:Inter;font-weight:800;background:var(--butter);padding:6px 14px;border-radius:10px;font-size:24px;letter-spacing:.08em}
+
+/* 5 table */
+#s5 .txt{position:absolute;left:72px;right:72px;top:170px}
+#s5 table{position:absolute;left:72px;right:72px;top:470px;width:936px;border-collapse:separate;border-spacing:0;font-size:34px}
+#s5 th,#s5 td{padding:26px 22px;text-align:center;border-bottom:2px solid var(--line);font-weight:600}
+#s5 th{font-size:34px;font-weight:800;padding-top:30px;padding-bottom:30px}
+#s5 td.k,#s5 th.k{text-align:left;color:#6B7280;font-weight:700;width:230px;padding-left:8px}
+#s5 .me{background:var(--navy);color:var(--white);width:353px}
+#s5 th.me{border-radius:26px 26px 0 0}
+#s5 tr:last-child td.me{border-radius:0 0 26px 26px;border-bottom:none}
+#s5 td.me{border-bottom:2px solid rgba(255,255,255,.18)}
+#s5 .me .y{color:var(--butter);font-weight:800}
+#s5 small{font-size:24px;font-weight:600;opacity:.7}
+#s5 .foot{position:absolute;left:72px;right:72px;top:1205px;font-size:24px;color:#6B7280;font-weight:500}
+#s5 .bottom{position:absolute;left:72px;right:72px;top:1050px;font-size:40px;font-weight:800}
+
+/* 6 CTA */
+#s6{background:url(img/carton.jpg) center/cover}
+#s6 .txt{position:absolute;left:72px;right:72px;top:160px}
+#s6 h2{font-size:80px}
+#s6 .ev{position:absolute;left:64px;top:452px;width:400px;background:rgba(255,253,249,.92);border-radius:30px;padding:34px 34px 36px;box-shadow:0 18px 40px rgba(28,42,68,.12)}
+#s6 .ev .t{font-size:26px;font-weight:800;color:var(--blue2);letter-spacing:.02em;margin-bottom:14px}
+#s6 .ev .big{font-size:44px;font-weight:800;line-height:1.25;margin-bottom:22px}
+#s6 .ev ol{list-style:none;font-size:29px;font-weight:600;line-height:1.5;color:var(--ink)}
+#s6 .ev ol li{display:flex;gap:12px}
+#s6 .ev ol li span{font-family:Inter;font-weight:800;color:var(--blue2)}
+#s6 .ev .when{margin-top:18px;padding-top:16px;border-top:2px dashed var(--line);font-size:26px;font-weight:600;color:#5B6475}
+#s6 .label{position:absolute;left:493px;top:540px;width:221px;height:560px;display:flex;flex-direction:column;align-items:center;mix-blend-mode:multiply;color:var(--navy)}
+#s6 .label .bar{width:100%;height:120px;background:#9FC3E4;margin-top:150px}
+#s6 .label .w{font-family:Inter;font-weight:800;font-size:30px;letter-spacing:.2em;text-align:center;line-height:1.15;margin-top:-104px;padding-left:.2em}
+#s6 .label .ko{font-size:22px;font-weight:700;margin-top:56px;letter-spacing:-.01em}
+#s6 .label .sm{font-family:Inter;font-size:15px;font-weight:600;letter-spacing:.18em;margin-top:8px;opacity:.8}
+#s6 .label .oat2{width:22px;height:42px;border-radius:50%;background:var(--navy);transform:rotate(18deg);margin-top:4px;position:relative}
+#s6 .label .oat2::after{content:"";position:absolute;left:10px;top:7px;width:2px;height:28px;background:#F0E9DD}
+#s6 .label .vol{font-family:Inter;font-size:22px;font-weight:700;margin-top:auto;margin-bottom:26px}
+#s6 .acts{position:absolute;left:64px;right:64px;bottom:56px;display:flex;gap:18px}
+#s6 .act{flex:1;background:var(--navy);color:var(--white);border-radius:24px;padding:22px 24px;display:flex;align-items:center;gap:16px;font-size:30px;font-weight:700}
+#s6 .act svg{flex:0 0 auto}
+
+/* EN original */
+#en{background:url(img/carton.jpg) center/cover}
+#en .txt{position:absolute;left:72px;right:72px;top:132px}
+#en h1{font-family:'Instrument Serif',serif;font-weight:400;font-size:108px;line-height:.98;letter-spacing:-0.01em}
+#en h1 i{font-style:italic}
+#en .sub{font-family:Inter;font-size:30px;font-weight:500;margin-top:30px;letter-spacing:-0.005em;line-height:1.45;color:var(--ink);max-width:440px}
+#en .label{position:absolute;left:493px;top:540px;width:221px;height:560px;display:flex;flex-direction:column;align-items:center;mix-blend-mode:multiply;color:var(--navy)}
+#en .label .bar{width:100%;height:120px;background:#9FC3E4;margin-top:150px}
+#en .label .w{font-family:Inter;font-weight:800;font-size:30px;letter-spacing:.2em;text-align:center;line-height:1.15;margin-top:-104px;padding-left:.2em}
+#en .label .sm{font-family:Inter;font-size:15px;font-weight:600;letter-spacing:.18em;margin-top:66px;opacity:.8}
+#en .label .oat2{width:22px;height:42px;border-radius:50%;background:var(--navy);transform:rotate(18deg);margin-top:10px;position:relative}
+#en .label .oat2::after{content:"";position:absolute;left:10px;top:7px;width:2px;height:28px;background:#F0E9DD}
+#en .label .vol{font-family:Inter;font-size:22px;font-weight:700;margin-top:auto;margin-bottom:26px}
+#en .tag{position:absolute;left:72px;bottom:60px;font-family:Inter;font-weight:700;font-size:24px;letter-spacing:.2em;color:var(--navy)}
+</style>
+</head>
+<body>
+
+<!-- 1 COVER -->
+<section class="slide" id="s1">
+  <div class="photo"></div>
+  <div class="top"><div class="brand"><div class="oat"></div>NORDIC OAT</div><div class="pg">1 / 6</div></div>
+  <div class="txt">
+    <div class="chip"><b>NEW</b> 스웨덴에서 온 귀리우유</div>
+    <h1>라떼가 <span class="hl">고소해지는</span><br>귀리우유, 한국 상륙</h1>
+    <p class="sub">우유 대신 귀리로 바꿨을 뿐인데</p>
+  </div>
+  <div class="next">옆으로 넘겨 보세요 →</div>
+</section>
+
+<!-- 2 PROBLEM -->
+<section class="slide" id="s2">
+  <div class="top"><div class="brand"><div class="oat"></div>NORDIC OAT</div><div class="pg">2 / 6</div></div>
+  <div class="txt">
+    <span class="kicker">홈카페 하는 분들 주목</span>
+    <h2>라떼 마시고<br><span class="hl">속이 더부룩했던 적,</span><br>있으시죠?</h2>
+  </div>
+  <div class="cards">
+    <div class="card"><div class="k">우유</div><div class="v">고소하지만 마시고 나면 부담</div><div class="x">✕</div></div>
+    <div class="card"><div class="k">두유</div><div class="v">콩 맛이 커피 맛을 덮어요</div><div class="x">✕</div></div>
+    <div class="card"><div class="k">아몬드 우유</div><div class="v">가볍지만 라떼엔 묽어요</div><div class="x">✕</div></div>
+  </div>
+  <p class="concl">그래서 노르딕 오트는<br><span class="hl">귀리</span>를 골랐어요.</p>
+  <div class="handle">@nordicoat.kr</div>
+</section>
+
+<!-- 3 POINTS -->
+<section class="slide" id="s3">
+  <div class="top"><div class="brand"><div class="oat"></div>NORDIC OAT</div><div class="pg">3 / 6</div></div>
+  <div class="txt">
+    <span class="kicker">한 번 바꾸면 계속 찾게 되는 이유</span>
+    <h2>노르딕 오트가<br>다른 <span class="hl">3가지</span></h2>
+  </div>
+  <div class="pts">
+    <div class="pt"><div class="num">01</div><div><h3>유당 없는 100% 식물성</h3><p>우유 대신 귀리와 물로 만들었어요.<br>유당이 들어 있지 않아요.</p></div></div>
+    <div class="pt"><div class="num">02</div><div><h3>스팀해도 쫀쫀한 거품</h3><p>바리스타용으로 만들어<br>집에서도 라떼 아트가 그려져요.</p></div></div>
+    <div class="pt"><div class="num">03</div><div><h3>설탕 없이 고소한 단맛</h3><p>설탕을 넣지 않아도<br>귀리 본연의 은은한 단맛이 나요.</p></div></div>
+  </div>
+  <div class="handle">@nordicoat.kr</div>
+</section>
+
+<!-- 4 RECIPE -->
+<section class="slide" id="s4">
+  <div class="top"><div class="brand"><div class="oat"></div>NORDIC OAT</div><div class="pg">4 / 6</div></div>
+  <div class="circ"></div>
+  <div class="txt">
+    <span class="kicker">저장해 두고 따라 하기</span>
+    <h2>집에서 3분,<br><span class="hl">귀리 라떼</span></h2>
+  </div>
+  <div class="steps">
+    <div class="st"><div class="badge">STEP 1</div><div><h3>에스프레소 1샷 내리기</h3><p>캡슐이나 진하게 탄 인스턴트 커피도 OK</p></div></div>
+    <div class="st"><div class="badge">STEP 2</div><div><h3>귀리우유 200ml 데우기</h3><p>전자레인지에 40초 데운 뒤 거품기로 20초만 저어 주세요.</p></div></div>
+    <div class="st"><div class="badge">STEP 3</div><div><h3>커피 위에 천천히 붓기</h3><p>거품은 숟가락으로 받쳐 두었다가 마지막에 올리면 완성!</p></div></div>
+  </div>
+  <div class="tip"><b>TIP</b> 아이스는 얼음 가득 + 귀리우유 150ml면 충분해요</div>
+  <div class="handle">@nordicoat.kr</div>
+</section>
+
+<!-- 5 TABLE -->
+<section class="slide" id="s5">
+  <div class="top"><div class="brand"><div class="oat"></div>NORDIC OAT</div><div class="pg">5 / 6</div></div>
+  <div class="txt">
+    <span class="kicker">한눈에 비교</span>
+    <h2>일반 우유와<br><span class="hl">뭐가 다를까요?</span></h2>
+  </div>
+  <table>
+    <tr><th class="k"></th><th class="me">노르딕 오트</th><th>일반 우유</th></tr>
+    <tr><td class="k">원료</td><td class="me">귀리</td><td>원유</td></tr>
+    <tr><td class="k">유당</td><td class="me"><span class="y">없음</span></td><td>있음</td></tr>
+    <tr><td class="k">칼로리* <small>200ml</small></td><td class="me">90kcal</td><td>130kcal</td></tr>
+    <tr><td class="k">맛</td><td class="me">은은하게 고소함</td><td>진하고 부드러움</td></tr>
+  </table>
+  <p class="bottom">우유 대신 바꾸기만 하면 돼요.<br>레시피는 그대로!</p>
+  <p class="foot">* 칼로리는 포트폴리오용 예시 수치예요. 실제 제품 정보가 아닙니다.</p>
+</section>
+
+<!-- 6 CTA -->
+<section class="slide" id="s6">
+  <div class="top"><div class="brand"><div class="oat"></div>NORDIC OAT</div><div class="pg">6 / 6</div></div>
+  <div class="txt">
+    <h2>귀리 라떼,<br><span class="hl">같이 마실 사람?</span></h2>
+  </div>
+  <div class="ev">
+    <div class="t">🎉 런칭 기념 이벤트</div>
+    <div class="big">체험팩 1L×2<br>100분께 드려요</div>
+    <ol>
+      <li><span>1</span>이 게시물 저장하기</li>
+      <li><span>2</span>같이 마실 친구 태그</li>
+    </ol>
+    <div class="when">11.1(일) ~ 11.14(토)<br>당첨 발표 11.18(수)</div>
+  </div>
+  <div class="label">
+    <div class="bar"></div>
+    <div class="w">NORDIC<br>OAT</div>
+    <div class="ko">귀리우유 바리스타</div>
+    <div class="sm">MADE IN SWEDEN</div>
+    <div class="oat2"></div>
+    <div class="vol">1L</div>
+  </div>
+  <div class="acts">
+    <div class="act"><svg width="34" height="40" viewBox="0 0 24 28" fill="none" stroke="#FFFDF9" stroke-width="2.4" stroke-linejoin="round"><path d="M3 2h18v24l-9-7-9 7z"/></svg>저장하고 나중에 보기</div>
+    <div class="act"><svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="#FFFDF9" stroke-width="2.2" stroke-linejoin="round"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4z"/></svg>친구에게 공유하기</div>
+  </div>
+</section>
+
+<!-- EN ORIGINAL (global brand post) -->
+<section class="slide" id="en">
+  <div class="top"><div class="brand"><div class="oat"></div>NORDIC OAT</div><div class="pg">@nordicoat</div></div>
+  <div class="txt">
+    <h1>Oat milk,<br><i>the Nordic way.</i></h1>
+    <p class="sub">Barista oat drink.<br>Dairy-free, gently sweet,<br>foams like a dream.</p>
+  </div>
+  <div class="label">
+    <div class="bar"></div>
+    <div class="w">NORDIC<br>OAT</div>
+    <div class="sm">BARISTA EDITION</div>
+    <div class="oat2"></div>
+    <div class="vol">1L</div>
+  </div>
+  <div class="tag">MADE IN SWEDEN · 1L</div>
+</section>
+
+</body>
+</html>

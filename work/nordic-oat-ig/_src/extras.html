@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>Nordic Oat — showcase renders</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#777;padding:40px;display:flex;flex-direction:column;gap:40px;align-items:flex-start}
+.canvas{position:relative;overflow:hidden;font-family:Inter,'Pretendard Variable',sans-serif;color:#1C2A44;word-break:keep-all}
+img{display:block}
+
+/* COVER 1600x1000 */
+#cover{width:1600px;height:1000px;background:radial-gradient(120% 90% at 75% 40%, #F6F1E8 0%, #E8E0D1 70%, #DED4C2 100%)}
+#cover .grain{position:absolute;inset:0;opacity:.35;background-image:radial-gradient(rgba(0,0,0,.05) 1px, transparent 1px);background-size:5px 5px}
+#cover .phone{position:absolute;left:140px;top:58px;width:420px;height:884px;border-radius:64px;background:#14161C;padding:14px;box-shadow:0 40px 80px rgba(28,42,68,.28), inset 0 0 0 2px #2c2f38}
+#cover .screen{width:100%;height:100%;border-radius:52px;background:#fff;overflow:hidden;position:relative;font-family:'Pretendard Variable',sans-serif}
+#cover .island{position:absolute;left:50%;top:12px;transform:translateX(-50%);width:112px;height:32px;border-radius:20px;background:#14161C;z-index:3}
+#cover .status{height:54px;display:flex;justify-content:space-between;align-items:flex-end;padding:0 30px 6px;font-family:Inter;font-weight:700;font-size:15px}
+#cover .ighead{height:58px;display:flex;align-items:center;gap:10px;padding:0 14px}
+#cover .av{width:36px;height:36px;border-radius:50%;background:#1C2A44;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 2px #fff,0 0 0 4px #A9CDEB}
+#cover .av i{width:9px;height:17px;border-radius:50%;background:#F3EDE2;transform:rotate(18deg);display:block}
+#cover .who{font-size:14px;font-weight:700;line-height:1.2}
+#cover .who span{display:block;font-weight:500;font-size:12px;color:#666}
+#cover .dots3{margin-left:auto;font-weight:800;letter-spacing:2px}
+#cover .post{width:392px;height:490px;position:relative}
+#cover .post img{width:100%;height:100%;object-fit:cover}
+#cover .post .cnt{position:absolute;right:10px;top:10px;background:rgba(20,22,28,.7);color:#fff;font-family:Inter;font-size:12px;font-weight:600;padding:4px 9px;border-radius:12px}
+#cover .acts{display:flex;align-items:center;gap:16px;padding:12px 14px 6px}
+#cover .acts .r{margin-left:auto}
+#cover .pager{position:absolute;left:0;right:0;top:622px;display:flex;justify-content:center;gap:5px}
+#cover .pager b{width:6px;height:6px;border-radius:50%;background:#C9CDD3}
+#cover .pager b:first-child{background:#3D8BF2}
+#cover .cap{padding:4px 14px;font-size:14px;line-height:1.45;color:#111;letter-spacing:-0.01em}
+#cover .cap b{font-weight:700}
+#cover .cap .more{color:#8a8a8a}
+#cover .cap .tags{color:#33539E}
+#cover .nav{position:absolute;left:0;right:0;bottom:0;height:64px;border-top:1px solid #eee;display:flex;justify-content:space-around;align-items:center;background:#fff}
+#cover .nav i{width:24px;height:24px;border:2.4px solid #111;border-radius:7px;display:block}
+#cover .nav i.c{border-radius:50%}
+
+#cover .right{position:absolute;left:640px;top:70px;width:900px}
+#cover .kick{font-weight:700;font-size:16px;letter-spacing:.22em;color:#5E8FC4}
+#cover h1{font-family:'Instrument Serif',serif;font-weight:400;font-size:76px;line-height:1;margin-top:14px;letter-spacing:-0.01em}
+#cover h1 i{font-style:italic}
+#cover h1 .ko{font-family:'Pretendard Variable';font-weight:800;font-size:64px;letter-spacing:-0.04em}
+#cover .fan{position:absolute;left:640px;top:270px;width:900px;height:520px}
+#cover .fan img{position:absolute;width:318px;height:398px;border-radius:14px;box-shadow:0 24px 50px rgba(28,42,68,.25)}
+#cover .fan .a{left:40px;top:70px;transform:rotate(-9deg)}
+#cover .fan .b{left:290px;top:30px;transform:rotate(-1deg);z-index:2}
+#cover .fan .c{left:540px;top:80px;transform:rotate(8deg);z-index:3}
+#cover .note{position:absolute;left:660px;top:812px;display:flex;align-items:center;gap:16px;background:rgba(255,253,249,.85);border-radius:20px;padding:14px 22px 14px 14px;box-shadow:0 10px 26px rgba(28,42,68,.12)}
+#cover .note img{width:72px;height:90px;border-radius:8px;object-fit:cover}
+#cover .note .arr{font-weight:800;font-size:15px;letter-spacing:.14em;color:#1C2A44;display:flex;flex-direction:column;align-items:center;gap:2px}
+#cover .note .arr span{font-size:26px;letter-spacing:0;line-height:1}
+#cover .note .t{font-size:15px;line-height:1.45;color:#3a4356;margin-left:6px}
+#cover .note .t b{display:block;color:#1C2A44;font-size:16px}
+#cover .caption{position:absolute;right:60px;bottom:44px;text-align:right;font-size:15px;line-height:1.5;color:#4b5466}
+#cover .caption b{color:#1C2A44}
+#cover .caption .cp{display:inline-block;margin-top:6px;border:1.5px solid #1C2A44;border-radius:999px;padding:3px 12px;font-weight:700;font-size:13px;letter-spacing:.12em;color:#1C2A44}
+
+/* CONTACT SHEET 1820x1640 */
+#sheet{width:1820px;height:1730px;background:#E9E3D8;padding:64px 60px}
+#sheet .hd{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:44px}
+#sheet .hd h2{font-family:'Instrument Serif',serif;font-weight:400;font-size:56px;line-height:1}
+#sheet .hd h2 i{font-style:italic}
+#sheet .hd p{font-size:18px;color:#4b5466;text-align:right;line-height:1.5}
+#sheet .hd p b{display:inline-block;border:1.5px solid #1C2A44;border-radius:999px;padding:2px 12px;font-size:14px;letter-spacing:.12em;color:#1C2A44}
+#sheet .grid{display:grid;grid-template-columns:repeat(3,540px);gap:40px 40px}
+#sheet figure{position:relative}
+#sheet figure img{width:540px;height:675px;border-radius:12px;box-shadow:0 14px 30px rgba(28,42,68,.16)}
+#sheet figcaption{margin-top:14px;font-weight:700;font-size:17px;color:#1C2A44;letter-spacing:.02em}
+
+/* BEFORE/AFTER 2200x1480 */
+#ba{width:2200px;height:1480px;background:#1C2A44;color:#F3EDE2;padding:80px 70px}
+#ba .row{display:flex;align-items:center;justify-content:center;gap:50px;margin-top:46px}
+#ba figure img{width:880px;height:1100px;border-radius:18px;box-shadow:0 30px 60px rgba(0,0,0,.35)}
+#ba .lab{font-size:22px;font-weight:700;letter-spacing:.2em;margin-bottom:0;color:#A9CDEB}
+#ba .top{display:flex;justify-content:space-between;align-items:flex-end}
+#ba h2{font-family:'Instrument Serif',serif;font-weight:400;font-size:64px;line-height:1}
+#ba h2 i{font-style:italic}
+#ba .cp{font-size:18px;border:1.5px solid #F3EDE2;border-radius:999px;padding:4px 14px;letter-spacing:.12em;font-weight:700}
+#ba .mid{flex:0 0 140px;text-align:center;font-weight:800;font-size:22px;letter-spacing:.16em;color:#FFD95E}
+#ba .mid span{display:block;font-size:72px;letter-spacing:0;line-height:1;margin-bottom:10px}
+#ba figcaption{margin-top:18px;font-size:22px;color:#c9d2e0;line-height:1.4}
+#ba figcaption b{color:#fff}
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<section class="canvas" id="cover">
+  <div class="grain"></div>
+  <div class="phone"><div class="screen">
+    <div class="island"></div>
+    <div class="status"><span>9:41</span><span>●●● ▮</span></div>
+    <div class="ighead"><div class="av"><i></i></div><div class="who">nordicoat.kr<span>노르딕 오트 코리아</span></div><div class="dots3">···</div></div>
+    <div class="post"><img src="../slide-1.png" alt=""><div class="cnt">1/6</div></div>
+    <div class="acts">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2"><path d="M12 21s-7.5-4.6-9.5-9.3C1.1 8.3 3.3 4.5 7 4.5c2.1 0 3.6 1.2 5 3 1.4-1.8 2.9-3 5-3 3.7 0 5.9 3.8 4.5 7.2C19.5 16.4 12 21 12 21z"/></svg>
+      <svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2"><path d="M21 12a9 9 0 1 1-3.6-7.2A9 9 0 0 1 21 12z"/><path d="M21 21l-3.6-3.6"/></svg>
+      <svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2" stroke-linejoin="round"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4z"/></svg>
+      <svg class="r" width="24" height="26" viewBox="0 0 24 28" fill="none" stroke="#111" stroke-width="2.2" stroke-linejoin="round"><path d="M3 2h18v24l-9-7-9 7z"/></svg>
+    </div>
+    <div class="pager"><b></b><b></b><b></b><b></b><b></b><b></b></div>
+    <div class="cap"><b>nordicoat.kr</b> 라떼가 고소해지는 귀리우유, 드디어 한국에 왔어요 ☕ 스웨덴에서 온 노르딕 오트 바리스타 에디션이에요. <span class="more">… 더 보기</span><br><span class="tags">#귀리라떼 #홈카페레시피</span><br><span class="more" style="font-size:12px">댓글 달기…</span></div>
+    <div class="nav"><i></i><i class="c"></i><i></i><i></i><i class="c"></i></div>
+  </div></div>
+
+  <div class="right">
+    <div class="kick">INSTAGRAM CAROUSEL · KOREA LAUNCH</div>
+    <h1>Nordic Oat, <i>now in</i> <span class="ko">한국어</span></h1>
+  </div>
+  <div class="fan">
+    <img class="a" src="../slide-4.png" alt="">
+    <img class="b" src="../slide-5.png" alt="">
+    <img class="c" src="../slide-6.png" alt="">
+  </div>
+  <div class="note">
+    <img src="../en-original.png" alt="">
+    <div class="arr">EN<span>→</span>KO</div>
+    <img src="../slide-1.png" alt="">
+    <div class="t"><b>Not translated. Re-written.</b>English brand post → 6-slide Korean<br>카드뉴스 built to be saved and shared.</div>
+  </div>
+  <div class="caption"><b>Nordic Oat</b> · fictional Swedish oat-milk brand<br>6 slides, 1080×1350 · Korean copy + caption<br><span class="cp">CONCEPT PROJECT</span></div>
+</section>
+
+<!-- CONTACT SHEET -->
+<section class="canvas" id="sheet">
+  <div class="hd">
+    <h2>Nordic Oat · <i>Korean carousel</i></h2>
+    <p>6 slides · 1080×1350 · Hook → insight → benefits → recipe → comparison → CTA<br><b>CONCEPT PROJECT · FICTIONAL BRAND</b></p>
+  </div>
+  <div class="grid">
+    <figure><img src="../slide-1.png"><figcaption>1 · Hook</figcaption></figure>
+    <figure><img src="../slide-2.png"><figcaption>2 · Insight</figcaption></figure>
+    <figure><img src="../slide-3.png"><figcaption>3 · Benefits</figcaption></figure>
+    <figure><img src="../slide-4.png"><figcaption>4 · Recipe</figcaption></figure>
+    <figure><img src="../slide-5.png"><figcaption>5 · Comparison</figcaption></figure>
+    <figure><img src="../slide-6.png"><figcaption>6 · CTA + event</figcaption></figure>
+  </div>
+</section>
+
+<!-- BEFORE / AFTER -->
+<section class="canvas" id="ba">
+  <div class="top"><h2>Before → <i>after</i></h2><span class="cp">CONCEPT PROJECT · FICTIONAL BRAND</span></div>
+  <div class="row">
+    <figure><div class="lab">BEFORE · GLOBAL ENGLISH POST</div><img src="../en-original.png" style="margin-top:18px"><figcaption><b>Minimal, mood-first.</b> Works in Stockholm, but a Korean feed scrolls past it.</figcaption></figure>
+    <div class="mid"><span>→</span>EN TO KO</div>
+    <figure><div class="lab">AFTER · KOREAN CAROUSEL, SLIDE 1/6</div><img src="../slide-1.png" style="margin-top:18px"><figcaption><b>Bold hook, highlight, swipe cue.</b> The 카드뉴스 format Korean users save.</figcaption></figure>
+  </div>
+</section>
+
+</body>
+</html>

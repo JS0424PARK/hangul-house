@@ -1,0 +1,10 @@
+{
+  "slug": "hana-academy",
+  "title": "Hana Korean Academy — bilingual school website",
+  "client_fictional": "Hana Korean Academy (fictional Korean language & culture school in Toronto)",
+  "type": "One-page website (live demo)",
+  "summary_en": "A playful, K-culture-modern one-page site for a fictional Korean school in Toronto, with an English / 한국어 toggle, animated Hangul hero, a flip-card “learn one word” game, course cards in CAD, a filterable timetable and a demo trial-booking form. Concept project — all names, addresses and contacts are placeholders.",
+  "tags": ["website", "landing page", "bilingual", "English/Korean", "education", "responsive", "HTML/CSS/JS", "concept"],
+  "live": true,
+  "images": ["cover.png", "shot-1.png", "shot-2.png", "shot-3.png"]
+}

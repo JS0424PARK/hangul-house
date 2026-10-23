@@ -1,0 +1,18 @@
+{
+  "slug": "glowra-korea",
+  "title": "GLOWRA — Korea launch localization",
+  "client_fictional": "GLOWRA (fictional Australian clean-skincare brand)",
+  "type": "Localization · Korean e-commerce detail page · banner · social ad",
+  "summary_en": "Concept project: an Australian skincare brand's English DTC page rebuilt as a Korean launch kit — an 860px 상세페이지 for Naver Smartstore, Coupang and Olive Young, plus a promo banner and a social ad, all with native Korean copy.",
+  "tags": ["Korean localization", "상세페이지", "K-beauty", "E-commerce", "Banner", "Social ad", "Copywriting"],
+  "live": false,
+  "images": ["cover.png", "shot-1.png", "shot-2.png", "shot-3.png"],
+  "extra": {
+    "before_page": "original.html",
+    "after_page": "index.html",
+    "banner_source": "banner.html",
+    "social_source": "social.html",
+    "detail_page_parts": ["detail-parts/part-01.png", "detail-parts/part-02.png", "detail-parts/part-03.png", "detail-parts/part-04.png", "detail-parts/part-05.png", "detail-parts/part-06.png"],
+    "notes": "Product photos (img/bottle.jpg, img/texture.jpg) are AI-generated mood/product images with no people. All product, price, ingredient and promo details are fictional examples."
+  }
+}

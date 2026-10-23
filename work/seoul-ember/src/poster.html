@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Seoul Ember — 치맥 Night poster (concept)</title>
+<link rel="stylesheet" href="common.css">
+<style>
+@page{size:1654px 2339px;margin:0}
+.page{position:relative;width:1654px;height:2339px;overflow:hidden;background:
+  radial-gradient(1100px 800px at 50% 52%, rgba(255,91,34,.20), transparent 65%),
+  radial-gradient(900px 500px at 50% 0%, rgba(255,138,61,.10), transparent 70%), var(--coal);}
+.bar{position:absolute;z-index:5;left:96px;right:96px;top:84px;display:flex;justify-content:space-between;align-items:center}
+.brand{display:flex;align-items:center;gap:20px}
+.brand .seal{width:74px;height:74px;font-size:46px;transform:rotate(-3deg)}
+.brand .wm{font-size:54px}
+.brand .sub{font-family:var(--ko-sans);font-size:18px;font-weight:500;letter-spacing:.3em;color:var(--ash2);margin-top:6px}
+.when{display:flex;align-items:center;gap:18px;border:2px solid var(--ember);border-radius:999px;padding:16px 30px}
+.when .ko{font-family:var(--ko-sans);font-weight:800;font-size:30px;color:var(--ember)}
+.when .en{font-size:20px;letter-spacing:.22em;text-transform:uppercase;font-weight:600}
+.big{position:absolute;z-index:3;left:0;right:0;top:215px;text-align:center;font-family:var(--ko-display);font-size:720px;line-height:.92;
+  letter-spacing:-.05em;color:var(--ember);text-shadow:0 0 120px rgba(255,91,34,.45)}
+.night{position:absolute;z-index:4;right:104px;top:735px;font-family:var(--en-serif);font-style:italic;font-size:250px;line-height:1;color:var(--ash);
+  text-shadow:0 10px 40px rgba(0,0,0,.6)}
+.photo{position:absolute;z-index:2;left:0;right:0;top:690px;height:1040px;
+  background:url(img/chicken.jpg) 56% 58%/cover no-repeat;
+  -webkit-mask-image:linear-gradient(180deg, transparent 0%, #000 24%, #000 76%, transparent 100%), linear-gradient(90deg, transparent 0%, #000 14%, #000 86%, transparent 100%);
+  -webkit-mask-composite:source-in; mask-image:linear-gradient(180deg, transparent 0%, #000 24%, #000 76%, transparent 100%), linear-gradient(90deg, transparent 0%, #000 14%, #000 86%, transparent 100%); mask-composite:intersect}
+.eq{position:absolute;z-index:5;left:96px;top:1100px;font-family:var(--ko-sans);color:var(--ash);
+  background:rgba(19,17,15,.78);backdrop-filter:blur(6px);border:1px solid var(--line);border-radius:16px;padding:22px 28px;width:430px}
+.eq .row{display:flex;align-items:baseline;gap:12px;font-size:30px;font-weight:700;line-height:1.5}
+.eq .row span{font-family:var(--en-serif);font-style:italic;font-weight:400;font-size:28px;color:var(--ash2)}
+.eq .row.total{border-top:1px solid var(--line);margin-top:8px;padding-top:8px;color:var(--ember)}
+.info{position:absolute;z-index:5;left:96px;right:96px;top:1675px}
+.offer{display:flex;align-items:center;justify-content:space-between;gap:40px;padding:38px 46px;border-radius:22px;background:var(--ember);color:var(--coal)}
+.offer .ko{font-family:var(--ko-sans);font-weight:800;font-size:54px;letter-spacing:-.01em;line-height:1.15}
+.offer .en{font-family:var(--en-serif);font-style:italic;font-size:38px;margin-top:6px}
+.offer .price{font-family:var(--en-serif);font-size:150px;line-height:.9}
+.flav{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:30px}
+.flav > div{border:1px solid var(--line);border-radius:16px;padding:22px 26px;background:rgba(27,24,21,.7)}
+.flav .ko{font-family:var(--ko-sans);font-weight:700;font-size:34px}
+.flav .en{font-size:19px;letter-spacing:.16em;text-transform:uppercase;color:var(--ash2);margin-top:6px}
+.tag{display:flex;justify-content:space-between;align-items:baseline;margin-top:34px}
+.tag .ko{font-family:var(--ko-serif);font-weight:700;font-size:40px}
+.tag .en{font-family:var(--en-serif);font-style:italic;font-size:38px;color:var(--ash2)}
+.foot{position:absolute;z-index:5;left:96px;right:96px;bottom:64px;display:flex;justify-content:space-between;align-items:flex-end;border-top:1px solid var(--line);padding-top:24px}
+.foot .l{font-size:22px;letter-spacing:.12em;text-transform:uppercase;color:var(--ash2);line-height:1.6}
+.foot .l b{color:var(--ash);font-weight:600}
+</style>
+</head>
+<body>
+<div class="page grain">
+  <div class="bar">
+    <div class="brand"><div class="seal">숯</div><div><div class="wm wordmark">Seoul Ember</div><div class="sub">서울 엠버</div></div></div>
+    <div class="when"><span class="ko">매주 목요일</span><span class="en">Every Thursday</span></div>
+  </div>
+  <div class="big">치맥</div>
+  <div class="photo"></div>
+  <div class="night">Night</div>
+  <div class="eq">
+    <div class="row">치킨 <span>chicken</span></div>
+    <div class="row">+ 맥주 <span>maekju, beer</span></div>
+    <div class="row total">= 치맥 <span>chimaek</span></div>
+  </div>
+  <div class="info">
+    <div class="offer">
+      <div><div class="ko">반반 치킨 + 생맥주 두 잔</div><div class="en">Half-and-half fried chicken + two draught lagers</div></div>
+      <div class="price">£25</div>
+    </div>
+    <div class="flav">
+      <div><div class="ko">후라이드</div><div class="en">Classic crispy</div></div>
+      <div><div class="ko">양념</div><div class="en">Sweet &amp; spicy</div></div>
+      <div><div class="ko">간장마늘</div><div class="en">Soy garlic</div></div>
+    </div>
+    <div class="tag"><span class="ko">치킨은 언제나 옳다.</span><span class="en">Chicken is always the answer.</span></div>
+  </div>
+  <div class="foot">
+    <div class="l"><b>Thursdays · 6pm till late</b><br>Walk-ins welcome · 예약 없이 오세요</div>
+    <div class="concept">Concept project · fictional venue · Hangul House</div>
+  </div>
+</div>
+</body>
+</html>

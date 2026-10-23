@@ -1,0 +1,11 @@
+{
+  "slug": "minji-daniel",
+  "title": "Minji & Daniel — Bilingual Mobile Wedding Invitation",
+  "client_fictional": "Minji & Daniel (fictional international couple), wedding at The Hanok Garden, Seoul (fictional venue)",
+  "type": "Bilingual mobile wedding invitation website (모바일 청첩장)",
+  "summary_en": "A Korean-style mobile wedding invitation that works fully in Korean and English, with a one-tap language toggle, a live D-day countdown and a friendly “First Korean wedding?” guide for international guests. Includes gallery lightbox, map links, gift accounts with copy-to-clipboard and an RSVP form.",
+  "tags": ["Wedding invitation", "모바일 청첩장", "Bilingual KO/EN", "Mobile-first website", "Korean culture guide", "Illustration"],
+  "live": true,
+  "images": ["cover.png", "shot-1.png", "shot-2.png", "shot-3.png"],
+  "notes": "Concept project. Couple, parents, venue, address, phone and bank accounts are fictional. Illustrations are AI-generated (no realistic faces) and art-directed for this concept. RSVP is front-end only; nothing is sent."
+}

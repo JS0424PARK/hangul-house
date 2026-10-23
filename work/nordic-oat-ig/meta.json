@@ -1,0 +1,25 @@
+{
+  "slug": "nordic-oat-ig",
+  "title": "Nordic Oat · Korean Instagram carousel",
+  "client_fictional": "Nordic Oat (fictional Swedish oat-milk brand launching in Korea)",
+  "type": "Social media localization · Instagram carousel (카드뉴스)",
+  "summary_en": "An English brand post re-written and re-designed as a 6-slide Korean carousel in the save-and-share 카드뉴스 format, with native Korean copy, a home-cafe recipe, a comparison table and a launch-event CTA. Includes a ready-to-post Korean caption with hashtags and an English back-translation.",
+  "tags": ["Instagram", "Carousel", "카드뉴스", "Korean localization", "Social media design", "F&B", "Concept project"],
+  "live": false,
+  "concept_project": true,
+  "images": ["cover.png", "shot-1.png", "shot-2.png", "shot-3.png", "shot-4.png"],
+  "slides": ["slide-1.png", "slide-2.png", "slide-3.png", "slide-4.png", "slide-5.png", "slide-6.png"],
+  "extra": {
+    "en_original": "en-original.png",
+    "caption": "caption.txt",
+    "source_html": ["_src/slides.html", "_src/extras.html"],
+    "notes": "Product photos are AI-generated (no people). Calorie values on slide 5 are example values, labeled on the slide."
+  },
+  "image_captions": {
+    "cover.png": "Phone mockup of the Korean carousel post, with slides 4–6 and the EN → KO before/after note.",
+    "shot-1.png": "Contact sheet: all 6 slides (hook, insight, benefits, recipe, comparison, CTA).",
+    "shot-2.png": "Slide 1 · Hook cover.",
+    "shot-3.png": "Slide 6 · CTA with launch event.",
+    "shot-4.png": "Before → after: the global English post vs the Korean carousel cover."
+  }
+}

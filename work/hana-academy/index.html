@@ -1,0 +1,1110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hana Korean Academy · Learn Korean in Toronto (Concept project)</title>
+<meta name="description" content="Concept website for Hana Korean Academy, a fictional Korean language and culture school in Toronto. Designed by Hangul House.">
+<meta name="theme-color" content="#FFF7EC">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%23FF5B3A'/%3E%3Ctext x='32' y='44' font-size='34' text-anchor='middle' fill='white' font-family='sans-serif' font-weight='900'%3E%ED%95%98%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Bricolage+Grotesque:opsz,wght@12..96,400..800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+:root{
+  --cream:#FFF7EC; --paper:#FFFDF8; --ink:#16161D; --muted:#5D5A66; --line:#E8DCCB;
+  --coral:#FF5B3A; --blue:#3D5AFE; --yellow:#FFC83D; --mint:#2FD69B; --pink:#FFB3C9; --lilac:#C7B8FF;
+  --display:"Bricolage Grotesque","Pretendard Variable",Pretendard,system-ui,sans-serif;
+  --hangul:"Black Han Sans","Pretendard Variable",Pretendard,sans-serif;
+  --body:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,system-ui,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:84px}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased;word-break:keep-all;overflow-wrap:break-word}
+img,svg{display:block;max-width:100%}
+a{color:inherit}
+button{font:inherit;color:inherit}
+.wrap{width:min(1200px,100% - 48px);margin-inline:auto}
+.han{font-family:var(--hangul);font-weight:400}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px;border-radius:8px}
+
+/* ribbon */
+.ribbon{background:var(--ink);color:#F4EDE2;font-size:13px;line-height:1.45;text-align:center;padding:9px 46px;position:relative}
+.ribbon b{color:var(--yellow);font-weight:700}
+.ribbon a{color:#fff}
+.ribbon button{position:absolute;right:8px;top:50%;transform:translateY(-50%);background:none;border:0;color:#F4EDE2;font-size:20px;line-height:1;width:32px;height:32px;cursor:pointer;opacity:.75}
+.ribbon.gone{display:none}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:60;background:rgba(255,247,236,.86);-webkit-backdrop-filter:saturate(1.4) blur(14px);backdrop-filter:saturate(1.4) blur(14px);border-bottom:1px solid transparent;transition:border-color .3s}
+.nav.scrolled{border-color:var(--line)}
+.nav-in{display:flex;align-items:center;gap:26px;height:74px}
+.logo{display:flex;align-items:center;gap:11px;text-decoration:none;flex-shrink:0}
+.logo-mark{width:42px;height:42px;border-radius:13px;background:var(--coral);color:#fff;display:grid;place-items:center;font-family:var(--hangul);font-size:18px;transform:rotate(-6deg);box-shadow:3px 3px 0 var(--ink);border:2px solid var(--ink);transition:transform .4s cubic-bezier(.3,1.6,.5,1)}
+.logo:hover .logo-mark{transform:rotate(6deg) scale(1.05)}
+.logo-text{line-height:1.08;font-family:var(--display);font-weight:800;font-size:18px;letter-spacing:-.01em}
+.logo-text small{display:block;font-family:var(--body);font-weight:600;font-size:11.5px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+.links{display:flex;gap:24px;margin-left:auto;align-items:center}
+.links a{text-decoration:none;font-weight:600;font-size:15px;position:relative;padding:6px 0}
+.links a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--coral);transform:scaleX(0);transform-origin:left;transition:transform .25s}
+.links a:hover::after{transform:scaleX(1)}
+.lang{display:flex;border:1.5px solid var(--ink);border-radius:999px;padding:3px;gap:2px;flex-shrink:0}
+.lang button{border:0;background:none;font-size:13px;font-weight:700;padding:5px 11px;border-radius:999px;cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--ink);color:var(--cream)}
+.burger{display:none;width:44px;height:44px;border:1.5px solid var(--ink);border-radius:14px;background:var(--paper);cursor:pointer;place-items:center;flex-shrink:0}
+.burger span{display:block;width:18px;height:2px;background:var(--ink);position:relative;transition:transform .3s}
+.burger span::before,.burger span::after{content:"";position:absolute;left:0;width:18px;height:2px;background:var(--ink);transition:transform .3s,top .3s}
+.burger span::before{top:-6px}.burger span::after{top:6px}
+.nav.open .burger span{background:transparent}
+.nav.open .burger span::before{top:0;transform:rotate(45deg)}
+.nav.open .burger span::after{top:0;transform:rotate(-45deg)}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-weight:700;font-size:16px;line-height:1.2;padding:15px 24px;border-radius:999px;border:2px solid var(--ink);text-decoration:none;cursor:pointer;transition:transform .2s,box-shadow .2s,background .2s;background:var(--ink);color:var(--cream);white-space:nowrap}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--coral)}
+.btn:active{transform:none;box-shadow:none}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn.ghost:hover{box-shadow:4px 4px 0 var(--ink)}
+.btn.sm{padding:10px 17px;font-size:14px}
+.btn .arr{transition:transform .2s}
+.btn:hover .arr{transform:translateX(3px)}
+
+/* hero */
+.hero{position:relative;padding:56px 0 96px;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.07fr .93fr;gap:48px;align-items:center;position:relative;z-index:1}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--ink)}
+.eyebrow::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--coral);box-shadow:0 0 0 4px rgba(255,91,58,.18)}
+.pill{background:var(--paper);border:1.5px solid var(--ink);border-radius:999px;padding:7px 14px 7px 12px}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(44px,6.3vw,90px);line-height:.98;letter-spacing:-.028em;margin:22px 0 24px}
+h1 em{font-style:normal;position:relative;display:inline-block;z-index:0}
+h1 em::before{content:"";position:absolute;left:-.06em;right:-.08em;bottom:.04em;height:.36em;background:var(--yellow);z-index:-1;transform:rotate(-1.5deg);border-radius:.08em}
+html[lang="ko"] h1{line-height:1.13;letter-spacing:-.045em;font-size:clamp(40px,5.6vw,80px)}
+.lead{font-size:clamp(17px,1.45vw,20px);line-height:1.6;color:#3A3843;max-width:33em;margin:0}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;margin:32px 0 28px}
+.meta{display:flex;flex-wrap:wrap;gap:8px 20px;font-size:14px;font-weight:600;color:var(--muted);margin:0;padding:0;list-style:none}
+.meta li{display:flex;align-items:center;gap:8px}
+.meta li::before{content:"";width:6px;height:6px;border-radius:2px;background:var(--ink);transform:rotate(45deg)}
+
+.stage{position:relative;width:100%;max-width:540px;aspect-ratio:1/1.02;margin-left:auto;container-type:inline-size}
+.tile{position:absolute;display:grid;place-items:center;aspect-ratio:1;border:2.5px solid var(--ink);border-radius:9cqw;box-shadow:1.8cqw 1.8cqw 0 var(--ink);font-family:var(--hangul);line-height:1;color:var(--ink);transform:rotate(var(--r));animation:pop .9s cubic-bezier(.3,1.5,.5,1) both,bob 6.5s ease-in-out infinite;user-select:none}
+.tile span{display:block;transform:translateY(.03em)}
+.t1{left:2%;top:7%;width:42%;background:var(--coral);font-size:25cqw;--r:-7deg;animation-delay:.1s,1s}
+.t2{left:53%;top:1%;width:40%;background:var(--blue);color:#fff;font-size:24cqw;--r:6deg;animation-delay:.25s,-1.6s}
+.t3{left:5%;top:50%;width:39%;background:var(--yellow);font-size:24cqw;--r:-2deg;animation-delay:.4s,-3.2s}
+.t4{left:68%;top:44%;width:15%;border-radius:50%;background:var(--mint);font-size:10cqw;--r:10deg;animation-delay:.55s,-4.4s}
+@keyframes pop{from{opacity:0;transform:translateY(30px) rotate(calc(var(--r) - 14deg)) scale(.7)}to{opacity:1;transform:rotate(var(--r))}}
+@keyframes bob{0%,100%{translate:0 0}50%{translate:0 -2.2cqw}}
+.bubble{position:absolute;left:31%;top:-3%;background:var(--paper);border:2.5px solid var(--ink);border-radius:5cqw;padding:2cqw 3.6cqw 2.2cqw;box-shadow:1.2cqw 1.2cqw 0 var(--ink);z-index:3;transform:rotate(-4deg);min-width:26cqw;text-align:center;animation:pop .8s .8s cubic-bezier(.3,1.5,.5,1) both;--r:-4deg}
+.bubble::after{content:"";position:absolute;left:24%;bottom:-3cqw;width:4.4cqw;height:4.4cqw;background:var(--paper);border-right:2.5px solid var(--ink);border-bottom:2.5px solid var(--ink);transform:rotate(45deg) skew(8deg,8deg)}
+.bubble b{display:block;font-family:var(--hangul);font-weight:400;font-size:7.4cqw;line-height:1.1}
+.bubble small{display:block;font-size:3cqw;font-weight:700;color:var(--muted);letter-spacing:.02em;margin-top:.6cqw;white-space:nowrap}
+.bubble .swap{transition:opacity .3s,transform .3s}
+.bubble.out .swap{opacity:0;transform:translateY(6px)}
+.jamo{position:absolute;right:0;bottom:0;width:54%;background:var(--paper);border:2.5px solid var(--ink);border-radius:5cqw;padding:3.4cqw 3.8cqw 3cqw;box-shadow:1.8cqw 1.8cqw 0 var(--ink);z-index:2;animation:pop .9s .7s cubic-bezier(.3,1.5,.5,1) both;--r:2deg;transform:rotate(2deg)}
+.jamo .jl{font-size:2.7cqw;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.jrow{display:flex;align-items:center;gap:1.4cqw;margin:2cqw 0 1.4cqw}
+.jrow b{font-family:var(--hangul);font-weight:400;font-size:7.6cqw;line-height:1;width:10cqw;height:10cqw;display:grid;place-items:center;border-radius:2.6cqw;background:#F2EADD}
+.jrow i{font-style:normal;font-weight:800;font-size:4cqw;color:var(--muted)}
+.jrow .syl{background:var(--ink);color:var(--yellow);width:13cqw;height:13cqw;font-size:10cqw;border-radius:3.2cqw;margin-left:.6cqw}
+.jcap{font-size:3.1cqw;font-weight:600;color:#3A3843;line-height:1.35;display:block}
+.jcap em{font-style:normal;font-weight:800;color:var(--ink)}
+.jamo.run .jrow > *{opacity:0;transform:translateY(8px) scale(.85);transition:opacity .35s,transform .45s cubic-bezier(.3,1.6,.5,1)}
+.jamo.run .jcap{opacity:0;transition:opacity .4s}
+.jamo.run.s1 .jrow > :nth-child(1),.jamo.run.s2 .jrow > :nth-child(-n+3),.jamo.run.s3 .jrow > :nth-child(-n+5),.jamo.run.s4 .jrow > *{opacity:1;transform:none}
+.jamo.run.s4 .jcap{opacity:1}
+.drift{position:absolute;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.drift span{position:absolute;font-family:var(--hangul);color:var(--ink);opacity:.05;animation:drift 18s ease-in-out infinite alternate}
+@keyframes drift{from{transform:translate(0,0) rotate(0)}to{transform:translate(30px,-40px) rotate(18deg)}}
+
+/* marquee */
+.band{background:var(--ink);color:var(--cream);overflow:hidden;padding:20px 0;border-block:2px solid var(--ink)}
+.track{display:flex;gap:56px;width:max-content;animation:marq 46s linear infinite}
+.band:hover .track{animation-play-state:paused}
+.track span{display:flex;align-items:baseline;gap:12px;white-space:nowrap}
+.track b{font-family:var(--hangul);font-weight:400;font-size:30px;line-height:1}
+.track i{font-style:normal;font-size:14px;font-weight:600;color:#B9B2A6}
+.track span::after{content:"";width:12px;height:12px;border-radius:3px;background:var(--c,var(--coral));transform:rotate(45deg) translateY(-4px);margin-left:44px;align-self:center}
+@keyframes marq{to{transform:translateX(-50%)}}
+
+/* sections */
+section{padding:112px 0}
+.sec-head{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:end;margin-bottom:56px}
+.kicker{font-size:12.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;display:inline-flex;align-items:center;gap:10px}
+.kicker::before{content:"";width:26px;height:2px;background:currentColor}
+h2{font-family:var(--display);font-weight:800;font-size:clamp(36px,4.7vw,66px);line-height:1.02;letter-spacing:-.035em;margin:14px 0 0}
+html[lang="ko"] h2{line-height:1.18;letter-spacing:-.045em}
+h2 .han{font-size:1.05em;letter-spacing:0}
+.sec-head p{color:var(--muted);font-size:18px;margin:0;max-width:31em}
+
+/* why */
+.why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.card{background:var(--paper);border:2px solid var(--ink);border-radius:26px;padding:28px 26px 30px;box-shadow:6px 6px 0 var(--ink);transition:transform .25s,box-shadow .25s}
+.card:hover{transform:translate(-3px,-3px);box-shadow:9px 9px 0 var(--ink)}
+.icon{width:64px;height:64px;border-radius:18px;border:2px solid var(--ink);display:grid;place-items:center;font-family:var(--hangul);font-size:32px;line-height:1;margin-bottom:22px}
+.card h3{font-family:var(--display);font-size:22px;line-height:1.15;letter-spacing:-.02em;margin:0 0 10px}
+.card p{margin:0;color:#45424D;font-size:15.5px;line-height:1.6}
+
+/* word */
+.word{padding:0 0 112px}
+.word-box{background:var(--blue);color:#fff;border-radius:44px;padding:76px 72px;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;position:relative;overflow:hidden;border:2px solid var(--ink)}
+.word-box .kicker{color:var(--yellow)}
+.word-box h2{color:#fff}
+.word-box p.sub{font-size:18px;color:rgba(255,255,255,.86);margin:20px 0 30px;max-width:26em}
+.deck-ctrl{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.deck-ctrl .btn{background:#fff;color:var(--ink);border-color:#fff}
+.deck-ctrl .btn:hover{box-shadow:4px 4px 0 var(--ink)}
+.deck-ctrl .btn.ghost{background:transparent;color:#fff;border-color:#fff}
+.count{font-weight:700;font-size:14px;color:rgba(255,255,255,.8);margin-left:6px;font-variant-numeric:tabular-nums}
+.flip{perspective:1600px;width:100%;max-width:500px;height:350px;justify-self:end;cursor:pointer;position:relative;z-index:1;border-radius:30px}
+.flip-in{position:relative;width:100%;height:100%;transition:transform .8s cubic-bezier(.2,.9,.25,1.15);transform-style:preserve-3d}
+.flip.flipped .flip-in{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:30px;border:2.5px solid var(--ink);box-shadow:10px 10px 0 var(--ink);padding:28px 32px;display:flex;flex-direction:column}
+.front{background:var(--yellow);color:var(--ink);justify-content:space-between}
+.front .wtag{display:flex;justify-content:space-between;font-size:13px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.front .big{font-family:var(--hangul);font-size:clamp(46px,6.4vw,84px);line-height:1;text-align:center;letter-spacing:.01em}
+.front .hint{text-align:center;font-size:14px;font-weight:700;display:flex;justify-content:center;align-items:center;gap:8px}
+.front .hint svg{width:18px;height:18px}
+.back{background:var(--paper);color:var(--ink);transform:rotateY(180deg);gap:14px;justify-content:center}
+.back .row{display:grid;grid-template-columns:64px 1fr;gap:14px;align-items:baseline}
+.back .lab{font-size:11.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.back .rom{font-family:var(--display);font-size:26px;font-weight:700;letter-spacing:-.01em}
+.back .mean{font-family:var(--display);font-size:28px;font-weight:800;line-height:1.15;letter-spacing:-.02em}
+.back .mean small{display:block;font-family:var(--body);font-size:14px;font-weight:600;color:var(--muted);letter-spacing:0;margin-top:4px}
+.back .tip{font-size:15px;line-height:1.55;color:#3A3843}
+.back .kr{position:absolute;top:22px;right:26px;font-family:var(--hangul);font-size:20px;color:var(--coral)}
+
+/* courses */
+.courses{padding-top:0}
+.course-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.course{border:2px solid var(--ink);border-radius:32px;padding:34px 34px 30px;background:var(--c);color:var(--ink);display:flex;flex-direction:column;position:relative;overflow:hidden;box-shadow:7px 7px 0 var(--ink);transition:transform .25s,box-shadow .25s}
+.course:hover{transform:translate(-3px,-3px);box-shadow:10px 10px 0 var(--ink)}
+.course.dark{color:#fff}
+.course-top{display:flex;gap:18px;align-items:flex-start;margin-bottom:18px}
+.glyph{flex-shrink:0;width:72px;height:72px;border-radius:50%;background:var(--paper);color:var(--ink);border:2px solid var(--ink);display:grid;place-items:center;font-family:var(--hangul);font-size:34px;line-height:1}
+.course h3{font-family:var(--display);font-size:30px;line-height:1.05;letter-spacing:-.03em;margin:4px 0 6px}
+.course .ko{font-size:15px;font-weight:700;opacity:.8}
+.course p{margin:0 0 22px;font-size:16px;line-height:1.6;max-width:32em}
+.course dl{margin:0 0 26px;display:grid;grid-template-columns:auto 1fr;border-top:1.5px solid currentColor}
+.course dt,.course dd{margin:0;padding:11px 0;border-bottom:1.5px solid rgba(22,22,29,.22);font-size:15px}
+.course.dark dt,.course.dark dd{border-bottom-color:rgba(255,255,255,.3)}
+.course dt{font-size:11.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding-right:22px;display:flex;align-items:center}
+.course dd{font-weight:600;text-align:right}
+.course-foot{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-top:auto;flex-wrap:wrap}
+.price{font-family:var(--display);font-weight:800;font-size:38px;line-height:1;letter-spacing:-.03em}
+.price small{font-family:var(--body);font-size:13px;font-weight:700;opacity:.75;letter-spacing:0;margin-left:6px}
+.course .btn{background:var(--ink);color:#fff}
+.course.dark .btn{background:#fff;color:var(--ink);border-color:var(--ink)}
+
+/* teachers */
+.teachers{background:var(--paper);border-block:2px solid var(--ink)}
+.t-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.teacher{border:2px solid var(--ink);border-radius:28px;background:var(--cream);padding:26px;display:flex;flex-direction:column;gap:16px}
+.ava{width:100%;aspect-ratio:1/0.86;border-radius:20px;border:2px solid var(--ink);display:grid;place-items:center;overflow:hidden;position:relative}
+.ava svg{width:72%;height:auto;transition:transform .5s cubic-bezier(.3,1.5,.5,1)}
+.teacher:hover .ava svg{transform:translateY(-6px) rotate(-3deg)}
+.ava .tag{position:absolute;left:14px;top:14px;background:var(--paper);border:1.5px solid var(--ink);border-radius:999px;font-size:12px;font-weight:800;padding:4px 10px}
+.teacher h3{font-family:var(--display);font-size:25px;letter-spacing:-.02em;line-height:1.1;margin:0}
+.teacher h3 span{font-family:var(--body);font-size:16px;font-weight:700;color:var(--muted);margin-left:6px;letter-spacing:0}
+.teacher .role{font-size:13px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--coral);margin:6px 0 0}
+.teacher p{margin:0;font-size:15.5px;color:#45424D}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto}
+.chip{font-size:12.5px;font-weight:700;border:1.5px solid var(--ink);border-radius:999px;padding:4px 11px;background:var(--paper)}
+.t-note{margin:26px 0 0;font-size:13.5px;color:var(--muted);text-align:center}
+
+/* trial */
+.trial{padding:112px 0}
+.trial-box{background:var(--ink);color:var(--cream);border-radius:44px;padding:72px;display:grid;grid-template-columns:.9fr 1.1fr;gap:60px;position:relative;overflow:hidden}
+.trial-box::after{content:"하나";position:absolute;left:-30px;bottom:-90px;font-family:var(--hangul);font-size:300px;line-height:1;color:rgba(255,255,255,.05);pointer-events:none}
+.trial-box .kicker{color:var(--mint)}
+.trial-box h2{color:#fff}
+.trial-box .sub{color:#CFC8BC;font-size:18px;margin:20px 0 28px;max-width:26em}
+.ticks{list-style:none;margin:0;padding:0;display:grid;gap:14px;position:relative;z-index:1}
+.ticks li{display:flex;gap:14px;align-items:center;font-weight:600;font-size:16.5px}
+.ticks li::before{content:"";flex-shrink:0;width:30px;height:30px;border-radius:10px;background:var(--mint) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2316161D' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center/18px no-repeat}
+.form-card{background:var(--cream);color:var(--ink);border-radius:30px;padding:36px;border:2px solid var(--ink);position:relative;z-index:1;min-height:100%}
+.f-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px 18px}
+.field{display:flex;flex-direction:column;gap:7px}
+.field.full{grid-column:1/-1}
+.field label,.field .lbl{font-size:13px;font-weight:800;letter-spacing:.02em}
+.field input,.field select,.field textarea{font:inherit;font-size:16px;padding:13px 15px;border-radius:14px;border:2px solid var(--ink);background:var(--paper);color:var(--ink);width:100%;transition:box-shadow .2s}
+.field select{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2316161D' stroke-width='2.5' stroke-linecap='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;background-size:18px;padding-right:42px}
+.field textarea{min-height:92px;resize:vertical}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;box-shadow:4px 4px 0 var(--blue)}
+.field.bad input,.field.bad select{border-color:var(--coral);box-shadow:4px 4px 0 var(--coral)}
+.err{font-size:13px;font-weight:700;color:#D63A1B;min-height:0;display:none}
+.field.bad .err{display:block}
+.seg{display:flex;flex-wrap:wrap;gap:8px}
+.seg input{position:absolute;opacity:0;pointer-events:none}
+.seg label{font-size:14px;font-weight:700;letter-spacing:0;padding:9px 14px;border:2px solid var(--ink);border-radius:999px;cursor:pointer;background:var(--paper);transition:background .2s,color .2s}
+.seg input:checked + label{background:var(--ink);color:var(--cream)}
+.seg input:focus-visible + label{outline:3px solid var(--blue);outline-offset:2px}
+.form-foot{display:flex;flex-direction:column;align-items:stretch;gap:12px;margin-top:24px}
+.form-foot .btn{order:-1;width:100%;padding:17px 24px;font-size:17px}
+.form-foot .btn{background:var(--coral);color:var(--ink)}
+.form-foot .btn:hover{box-shadow:4px 4px 0 var(--ink)}
+.demo-note{font-size:12.5px;color:var(--muted);margin:0;line-height:1.45;text-align:center}
+.success{display:none;flex-direction:column;align-items:flex-start;justify-content:center;gap:14px;min-height:420px}
+.form-card.done form{display:none}
+.form-card.done .success{display:flex;animation:pop .7s cubic-bezier(.3,1.5,.5,1) both;--r:0deg}
+.success .stamp{width:84px;height:84px;border-radius:24px;background:var(--mint);border:2px solid var(--ink);box-shadow:5px 5px 0 var(--ink);display:grid;place-items:center;transform:rotate(-6deg)}
+.success .stamp svg{width:44px}
+.success h3{font-family:var(--hangul);font-weight:400;font-size:52px;line-height:1;margin:10px 0 0}
+.success p{margin:0;font-size:17px;max-width:28em}
+.success .demo-note{max-width:30em;text-align:left}
+
+/* timetable */
+.tt-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:34px}
+.tt-head p{color:var(--muted);font-size:18px;margin:14px 0 0}
+.filters{display:flex;gap:8px;flex-wrap:wrap}
+.filters button{font-size:14px;font-weight:700;padding:9px 16px;border:2px solid var(--ink);border-radius:999px;background:var(--paper);cursor:pointer;transition:background .2s,color .2s}
+.filters button[aria-pressed="true"]{background:var(--ink);color:var(--cream)}
+.tt{width:100%;border-collapse:separate;border-spacing:0;border:2px solid var(--ink);border-radius:26px;overflow:hidden;background:var(--paper);box-shadow:7px 7px 0 var(--ink)}
+.tt th{text-align:left;font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;background:var(--ink);color:var(--cream);padding:16px 22px}
+.tt td{padding:17px 22px;border-top:1.5px solid var(--line);font-size:16px;vertical-align:middle;transition:opacity .3s,background .3s}
+.tt tr.dim td{opacity:.25}
+.tt tr.hit td{background:#FFF1C9}
+.tt .day{font-family:var(--display);font-weight:800;font-size:19px;letter-spacing:-.01em;width:12%}
+.tt .time{font-variant-numeric:tabular-nums;font-weight:600;white-space:nowrap}
+.tt .cls{font-weight:700}
+.tt .cls::before{content:"";display:inline-block;vertical-align:-1px;margin-right:12px;width:14px;height:14px;border-radius:5px;background:var(--c);border:1.5px solid var(--ink)}
+.room{font-family:var(--hangul);font-size:18px;display:inline-grid;place-items:center;width:34px;height:34px;border-radius:10px;border:1.5px solid var(--ink);background:var(--cream);line-height:1}
+.tt .lvl{color:var(--muted);font-weight:600}
+.tt tr.closed td{color:var(--muted);font-style:normal}
+
+/* faq */
+.faq-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:64px;align-items:start}
+.faq-grid .side p{color:var(--muted);font-size:18px;margin:18px 0 26px}
+.acc{display:grid;gap:14px}
+.acc details{border:2px solid var(--ink);border-radius:22px;background:var(--paper);transition:box-shadow .25s,background .25s}
+.acc details[open]{box-shadow:6px 6px 0 var(--ink);background:#fff}
+.acc summary{list-style:none;cursor:pointer;padding:21px 24px;display:flex;justify-content:space-between;align-items:center;gap:20px;font-weight:700;font-size:17.5px;line-height:1.4}
+.acc summary::-webkit-details-marker{display:none}
+.acc summary .pm{flex-shrink:0;width:34px;height:34px;border-radius:50%;border:2px solid var(--ink);position:relative;transition:transform .35s,background .25s}
+.acc summary .pm::before,.acc summary .pm::after{content:"";position:absolute;left:50%;top:50%;width:13px;height:2.5px;background:var(--ink);transform:translate(-50%,-50%);border-radius:2px}
+.acc summary .pm::after{transform:translate(-50%,-50%) rotate(90deg);transition:transform .35s}
+.acc details[open] .pm{background:var(--yellow);transform:rotate(180deg)}
+.acc details[open] .pm::after{transform:translate(-50%,-50%) rotate(0)}
+.acc .ans{padding:0 24px 22px;color:#45424D;font-size:16px;line-height:1.65}
+.acc details[open] .ans{animation:fadeDown .35s ease both}
+@keyframes fadeDown{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+
+/* visit */
+.visit{padding-top:0}
+.visit-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:24px;align-items:stretch}
+.info{background:var(--mint);border:2px solid var(--ink);border-radius:32px;padding:40px;display:flex;flex-direction:column;gap:22px;box-shadow:7px 7px 0 var(--ink)}
+.info h2{margin-top:10px}
+.addr{font-size:19px;font-weight:700;line-height:1.5;font-style:normal}
+.addr small{display:block;font-size:15px;font-weight:600;margin-top:6px;opacity:.85}
+.hours{display:grid;grid-template-columns:auto 1fr;gap:6px 22px;font-size:15.5px;margin:0}
+.hours dt{font-weight:800}
+.hours dd{margin:0;font-weight:500}
+.info .btn{align-self:flex-start;margin-top:auto}
+.info .fine{font-size:12.5px;margin:0;opacity:.8}
+.map{border:2px solid var(--ink);border-radius:32px;overflow:hidden;background:#EFE6D6;position:relative;min-height:440px;box-shadow:7px 7px 0 var(--ink)}
+.map svg{width:100%;height:100%;position:absolute;inset:0}
+.pin{transform-origin:50% 100%;animation:pinb 2.4s ease-in-out infinite}
+@keyframes pinb{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+
+/* footer */
+footer{background:var(--ink);color:#D9D2C6;padding:80px 0 36px;overflow:hidden}
+.f-top{display:grid;grid-template-columns:1.2fr .8fr .8fr .9fr;gap:40px}
+.f-top h4{color:#fff;font-size:13px;letter-spacing:.12em;text-transform:uppercase;margin:0 0 14px}
+.f-top ul{list-style:none;margin:0;padding:0;display:grid;gap:8px;font-size:15px}
+.f-top a{text-decoration:none}
+.f-top a:hover{color:var(--yellow)}
+.f-brand p{font-size:15px;max-width:22em;margin:16px 0 0}
+.f-brand .logo-text{color:#fff}
+.f-brand .logo-text small{color:#A9A296}
+.giant{font-family:var(--hangul);font-size:clamp(120px,24vw,340px);line-height:.9;color:transparent;-webkit-text-stroke:2px rgba(255,247,236,.22);margin:60px 0 0;letter-spacing:-.01em;white-space:nowrap;user-select:none}
+.giant span{color:var(--coral);-webkit-text-stroke:0}
+.f-bot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.14);padding-top:22px;margin-top:10px;font-size:13px;color:#A9A296}
+.f-bot b{color:var(--yellow);font-weight:700}
+
+/* reveal */
+.js .reveal{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+.js .reveal.in{opacity:1;transform:none}
+.reveal.d1{transition-delay:.08s}.reveal.d2{transition-delay:.16s}.reveal.d3{transition-delay:.24s}
+
+/* still mode (for screenshots) & reduced motion */
+.still *,.still *::before,.still *::after{animation:none!important;transition:none!important}
+html.still{scroll-behavior:auto}
+.still .reveal{opacity:1!important;transform:none!important}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .js .reveal{opacity:1;transform:none}
+}
+
+/* responsive */
+@media (max-width:1080px){
+  .why-grid{grid-template-columns:repeat(2,1fr)}
+  .word-box{padding:60px 48px}
+  .trial-box{padding:56px 44px;gap:44px}
+  .f-top{grid-template-columns:1fr 1fr}
+}
+@media (max-width:960px){
+  .burger{display:grid;margin-left:auto}
+  .nav-in{gap:12px}
+  .nav .nav-cta{display:none}
+  .links{position:absolute;left:0;right:0;top:100%;background:var(--cream);flex-direction:column;align-items:stretch;gap:0;padding:8px 24px 22px;border-bottom:2px solid var(--ink);display:none;margin:0}
+  .links a{font-size:20px;font-family:var(--display);font-weight:800;padding:14px 0;border-bottom:1px solid var(--line)}
+  .links a::after{display:none}
+  .links .btn{margin-top:16px;font-family:var(--body);font-size:16px;border-bottom:2px solid var(--ink)}
+  .nav.open .links{display:flex}
+  .hero-grid,.word-box,.trial-box,.faq-grid,.visit-grid,.sec-head{grid-template-columns:1fr}
+  .stage{margin:10px auto 0;max-width:500px}
+  .flip{justify-self:center}
+  .sec-head{gap:16px}
+}
+@media (min-width:961px){.links .btn{display:none}}
+@media (max-width:720px){
+  body{font-size:16px}
+  .wrap{width:calc(100% - 40px)}
+  .ribbon{font-size:12px;text-align:left;padding:8px 44px 8px 16px}
+  .pill{font-size:10.5px;letter-spacing:.05em;padding:7px 12px 7px 10px}
+  .nav-in{height:66px}
+  .logo-text{font-size:16px}
+  .logo-text small{font-size:10px}
+  .logo-mark{width:38px;height:38px;font-size:16px}
+  .lang button{padding:5px 9px;font-size:12.5px}
+  .hero{padding:34px 0 64px}
+  h1{font-size:clamp(40px,11.6vw,58px);margin:18px 0 18px}
+  html[lang="ko"] h1{font-size:clamp(34px,9.6vw,50px)}
+  .cta-row .btn{flex:1 1 100%}
+  section{padding:76px 0}
+  .sec-head{margin-bottom:36px}
+  .sec-head p,.tt-head p,.faq-grid .side p{font-size:16.5px}
+  .why-grid,.course-grid,.t-grid{grid-template-columns:1fr}
+  .why-grid{gap:16px}
+  .word{padding:0 0 76px}
+  .word-box{border-radius:32px;padding:44px 22px 30px;gap:34px;width:calc(100% - 24px)}
+  .flip{height:380px}
+  .face{padding:24px 22px}
+  .back .row{grid-template-columns:1fr;gap:4px}
+  .back .rom{font-size:23px}
+  .back .mean{font-size:25px}
+  .course{padding:28px 22px 24px;border-radius:28px}
+  .course h3{font-size:26px}
+  .glyph{width:60px;height:60px;font-size:28px}
+  .price{font-size:34px}
+  .course-foot .btn{flex:1 1 100%}
+  .trial{padding:76px 0}
+  .trial-box{border-radius:32px;padding:44px 20px 22px;width:calc(100% - 24px)}
+  .trial-box::after{font-size:200px}
+  .form-card{padding:24px 18px;border-radius:24px}
+  .f-grid{grid-template-columns:1fr}
+  .tt,.tt tbody,.tt tr,.tt td{display:block}
+  .tt thead{display:none}
+  .tt{border-radius:22px}
+  .tt tr{padding:16px 18px;border-top:1.5px solid var(--line);display:grid;grid-template-columns:auto 1fr auto;column-gap:14px;row-gap:2px;align-items:center}
+  .tt tr:first-child{border-top:0}
+  .tt td{border:0;padding:0;font-size:15px}
+  .tt .day{grid-row:1/3;width:auto;font-size:18px;min-width:44px}
+  .tt .time{grid-column:2;grid-row:1;font-size:14px;color:var(--muted)}
+  .tt .cls{grid-column:2;grid-row:2;font-size:16px}
+  .tt .lvl{grid-column:2;grid-row:3;font-size:13.5px}
+  .tt .rm{grid-column:3;grid-row:1/4}
+  .tt tr.closed .cls{grid-row:2}
+  .acc summary{padding:18px 18px;font-size:16.5px}
+  .acc .ans{padding:0 18px 20px;font-size:15.5px}
+  .info{padding:30px 22px;border-radius:28px}
+  .map{min-height:320px;border-radius:28px}
+  .f-top{grid-template-columns:1fr 1fr;gap:32px 20px}
+  .f-brand{grid-column:1/-1}
+  .giant{margin-top:44px}
+}
+</style>
+</head>
+<body>
+
+<div class="ribbon" id="ribbon" role="note">
+  <span data-ko="<b>콘셉트 프로젝트</b> · 하나 한국어 학원은 Hangul House가 디자인한 가상의 학원이에요."><b>Concept project</b> · Hana Korean Academy is a fictional school designed by Hangul House.</span>
+  <button type="button" aria-label="Close notice" id="ribbonX">×</button>
+</div>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a class="logo" href="#top" aria-label="Hana Korean Academy home">
+      <span class="logo-mark" aria-hidden="true">하나</span>
+      <span class="logo-text">Hana Korean<small>Academy · Toronto</small></span>
+    </a>
+    <nav class="links" id="links" aria-label="Main">
+      <a href="#courses" data-ko="수업">Courses</a>
+      <a href="#teachers" data-ko="선생님">Teachers</a>
+      <a href="#timetable" data-ko="시간표">Timetable</a>
+      <a href="#faq">FAQ</a>
+      <a href="#visit" data-ko="오시는 길">Visit</a>
+      <a class="btn" href="#trial" data-ko="무료 체험 신청">Book a free trial</a>
+    </nav>
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" data-lang="en" aria-pressed="true">EN</button>
+      <button type="button" data-lang="ko" aria-pressed="false">한국어</button>
+    </div>
+    <a class="btn sm nav-cta" href="#trial" data-ko="무료 체험">Free trial</a>
+    <button class="burger" id="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="links"><span></span></button>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- HERO -->
+<section class="hero" aria-labelledby="h1">
+  <div class="drift" aria-hidden="true">
+    <span style="left:4%;top:12%;font-size:120px">ㄱ</span>
+    <span style="left:44%;top:70%;font-size:90px;animation-delay:-4s">ㅏ</span>
+    <span style="left:88%;top:8%;font-size:110px;animation-delay:-8s">ㅎ</span>
+    <span style="left:60%;top:2%;font-size:70px;animation-delay:-2s">ㅗ</span>
+    <span style="left:12%;top:78%;font-size:100px;animation-delay:-6s">ㄹ</span>
+    <span style="left:94%;top:74%;font-size:80px;animation-delay:-10s">ㅁ</span>
+  </div>
+  <div class="wrap hero-grid">
+    <div class="reveal">
+      <span class="eyebrow pill" data-ko="토론토의 한국어·한국 문화 학원">Korean language &amp; culture school · Toronto</span>
+      <h1 id="h1" data-ko="교과서 말고,<br>한국 사람이 <em>진짜</em><br>쓰는 한국어.">Learn Korean the way Koreans <em>actually</em> talk.</h1>
+      <p class="lead" data-ko="한 반 최대 8명, 한국인 선생님, 카페 주문부터 드라마 대사까지 살아 있는 한국어를 배워요. 한글을 하나도 몰라도 괜찮아요. 2주면 읽을 수 있어요.">Small classes, native Korean teachers and real-life Korean, from café orders to K-drama lines. Can't read Hangul yet? Give us two weeks.</p>
+      <div class="cta-row">
+        <a class="btn" href="#trial"><span data-ko="무료 체험 수업 신청">Book a free trial class</span> <span class="arr" aria-hidden="true">→</span></a>
+        <a class="btn ghost" href="#courses" data-ko="수업 둘러보기">See courses</a>
+      </div>
+      <ul class="meta">
+        <li data-ko="토론토 코리아타운">Koreatown, Toronto</li>
+        <li data-ko="평일 저녁·주말">Evenings &amp; weekends</li>
+        <li data-ko="한 반 최대 8명">Max 8 per class</li>
+      </ul>
+    </div>
+
+    <div class="stage" aria-label="Animated Hangul letters">
+      <div class="tile t1" aria-hidden="true"><span>한</span></div>
+      <div class="tile t2" aria-hidden="true"><span>국</span></div>
+      <div class="tile t3" aria-hidden="true"><span>어</span></div>
+      <div class="tile t4" aria-hidden="true"><span>!</span></div>
+      <div class="bubble" id="bubble" aria-live="polite"><div class="swap"><b id="bW">대박!</b><small id="bR">dae-bak · “awesome!”</small></div></div>
+      <div class="jamo" id="jamo">
+        <span class="jl" data-ko="한글은 이렇게 만들어져요">How Hangul works</span>
+        <div class="jrow" aria-hidden="true"><b id="j1">ㅎ</b><i>+</i><b id="j2">ㅏ</b><i>+</i><b id="j3">ㄴ</b><i>=</i><b class="syl" id="j4">한</b></div>
+        <span class="jcap" id="jcap"><em>h + a + n = han</em> · as in 한국, “Korea”</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="band" aria-label="Everyday Korean words">
+  <div class="track">
+    <span><b>안녕하세요</b><i>annyeonghaseyo · hello</i></span>
+    <span style="--c:var(--yellow)"><b>감사합니다</b><i>gamsahamnida · thank you</i></span>
+    <span style="--c:var(--mint)"><b>대박</b><i>daebak · awesome</i></span>
+    <span style="--c:var(--blue)"><b>화이팅</b><i>hwaiting · you got this</i></span>
+    <span style="--c:var(--pink)"><b>맛있어요</b><i>masisseoyo · it's delicious</i></span>
+    <span style="--c:var(--lilac)"><b>괜찮아요</b><i>gwaenchanayo · it's okay</i></span>
+    <span><b>보고 싶어</b><i>bogo sipeo · I miss you</i></span>
+    <span style="--c:var(--yellow)"><b>진짜?</b><i>jinjja? · really?</i></span>
+    <span aria-hidden="true"><b>안녕하세요</b><i>annyeonghaseyo · hello</i></span>
+    <span aria-hidden="true" style="--c:var(--yellow)"><b>감사합니다</b><i>gamsahamnida · thank you</i></span>
+    <span aria-hidden="true" style="--c:var(--mint)"><b>대박</b><i>daebak · awesome</i></span>
+    <span aria-hidden="true" style="--c:var(--blue)"><b>화이팅</b><i>hwaiting · you got this</i></span>
+    <span aria-hidden="true" style="--c:var(--pink)"><b>맛있어요</b><i>masisseoyo · it's delicious</i></span>
+    <span aria-hidden="true" style="--c:var(--lilac)"><b>괜찮아요</b><i>gwaenchanayo · it's okay</i></span>
+    <span aria-hidden="true"><b>보고 싶어</b><i>bogo sipeo · I miss you</i></span>
+    <span aria-hidden="true" style="--c:var(--yellow)"><b>진짜?</b><i>jinjja? · really?</i></span>
+  </div>
+</div>
+
+<!-- WHY -->
+<section id="why" aria-labelledby="whyT">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="reveal">
+        <span class="kicker" data-ko="왜 하나일까요">Why Hana</span>
+        <h2 id="whyT" data-ko="‘하나’는 한국어로 숫자 1이에요."><span class="han">하나</span> means “one.”</h2>
+      </div>
+      <p class="reveal d1" data-ko="작은 반 하나, 다정한 커뮤니티 하나, 진짜 대화 한 번씩. 한국어는 그렇게 늘어요.">One small class, one friendly community, one real conversation at a time. That's how Korean actually sticks.</p>
+    </div>
+    <div class="why-grid">
+      <article class="card reveal">
+        <div class="icon" style="background:var(--coral)" aria-hidden="true">말</div>
+        <h3 data-ko="첫날부터 말해요">Talk from day one</h3>
+        <p data-ko="수업의 절반 이상은 말하기예요. 카페, 단톡방, 드라마에서 실제로 쓰는 한국어를 연습해요.">At least half of every class is speaking. You practise the Korean people use in cafés, group chats and on screen.</p>
+      </article>
+      <article class="card reveal d1">
+        <div class="icon" style="background:var(--yellow)" aria-hidden="true">8</div>
+        <h3 data-ko="최대 8명 소규모">Small classes, max 8</h3>
+        <p data-ko="함께 연습할 친구는 충분하고, 선생님이 내 이름과 실수까지 기억할 만큼 작아요.">Enough people to practise with, few enough that your teacher knows your name, and your favourite mistakes.</p>
+      </article>
+      <article class="card reveal d2">
+        <div class="icon" style="background:var(--blue);color:#fff" aria-hidden="true">한</div>
+        <h3 data-ko="한국인 선생님">Native Korean teachers</h3>
+        <p data-ko="한국에서 자란 선생님들이 교과서에 없는 말투, 줄임말, 예절까지 알려 드려요.">Our teachers grew up in Korea and teach the tone, slang and manners that textbooks skip.</p>
+      </article>
+      <article class="card reveal d3">
+        <div class="icon" style="background:var(--mint)" aria-hidden="true">맛</div>
+        <h3 data-ko="문화도 수업이에요">Culture is part of class</h3>
+        <p data-ko="매달 한식의 밤, 드라마 같이 보기, 금요 노래방. 재미있어야 오래 기억나요.">Monthly 한식 nights, K-drama watch parties and noraebang (karaoke) Fridays. Fun is how words stay.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- LEARN ONE WORD -->
+<section class="word" aria-labelledby="wordT">
+  <div class="wrap word-box reveal">
+    <div>
+      <span class="kicker" data-ko="지금 해 보기">Try it now</span>
+      <h2 id="wordT" data-ko="10초 만에<br>한 단어.">Learn one word<br>in 10 seconds.</h2>
+      <p class="sub" data-ko="카드를 눌러 뒤집어 보세요. 그리고 소리 내어 따라 해 보세요.">Tap the card to flip it, then say it out loud. Your neighbours won't mind.</p>
+      <div class="deck-ctrl">
+        <button class="btn" type="button" id="flipBtn" data-ko="뒤집기">Flip card</button>
+        <button class="btn ghost" type="button" id="nextBtn"><span data-ko="다음 단어">Next word</span> <span class="arr" aria-hidden="true">→</span></button>
+        <button class="btn ghost" type="button" id="sayBtn" aria-label="Hear it"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg><span data-ko="들어 보기">Hear it</span></button>
+        <span class="count" id="count">1 / 5</span>
+      </div>
+    </div>
+    <div class="flip" id="flip" role="button" tabindex="0" aria-pressed="false" aria-label="Word card. Press to flip.">
+      <div class="flip-in">
+        <div class="face front">
+          <div class="wtag"><span data-ko="오늘의 단어">Word of the moment</span><span id="wNo">01</span></div>
+          <div class="big" id="wKo">안녕하세요</div>
+          <div class="hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 15.5-6.2L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15.5 6.2L3 16"/><path d="M3 21v-5h5"/></svg><span data-ko="눌러서 뒤집기">Tap to flip</span></div>
+        </div>
+        <div class="face back" aria-hidden="true">
+          <span class="kr" id="wKo2">안녕하세요</span>
+          <div class="row"><span class="lab">Say it</span><span class="rom" id="wRom">an-nyeong-ha-se-yo</span></div>
+          <div class="row"><span class="lab">Means</span><span class="mean" id="wMean">Hello<small>polite, for almost anyone</small></span></div>
+          <div class="row"><span class="lab">Tip</span><span class="tip" id="wTip">Use it with anyone you don't know well. A small nod of the head is the perfect add-on.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COURSES -->
+<section class="courses" id="courses" aria-labelledby="cT">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="reveal">
+        <span class="kicker" data-ko="수업 안내">Courses</span>
+        <h2 id="cT" data-ko="첫걸음을 골라 보세요.">Pick your first step.</h2>
+      </div>
+      <p class="reveal d1" data-ko="시작하는 방법은 네 가지. 모든 수업은 60분 무료 체험 수업으로 시작해요. 가격은 캐나다 달러, HST 별도예요.">Four ways to start. Every course begins with a free 60-minute trial class. Prices in Canadian dollars, plus HST.</p>
+    </div>
+    <div class="course-grid">
+      <article class="course reveal" style="--c:var(--coral)">
+        <div class="course-top">
+          <div class="glyph" aria-hidden="true">가</div>
+          <div><h3>Hangul in 2 Weeks</h3><div class="ko">한글 2주 완성</div></div>
+        </div>
+        <p data-ko="자음과 모음을 모두 읽고 쓰고, 메뉴판과 간판, 좋아하는 아이돌 이름까지 소리 내어 읽어 봐요.">Read and write every Hangul letter, then sound out menus, shop signs and your favourite idol's name.</p>
+        <dl>
+          <dt data-ko="레벨">Level</dt><dd data-ko="완전 처음">Absolute beginner</dd>
+          <dt data-ko="일정">Schedule</dt><dd data-ko="월·수·금 오후 7:00–8:30">Mon · Wed · Fri, 7:00–8:30 PM</dd>
+          <dt data-ko="기간">Length</dt><dd data-ko="2주 · 6회">2 weeks · 6 classes</dd>
+        </dl>
+        <div class="course-foot">
+          <div class="price">CAD $149<small>+ HST</small></div>
+          <a class="btn sm" href="#trial" data-course="hangul"><span data-ko="무료로 들어 보기">Try it free</span> <span class="arr" aria-hidden="true">→</span></a>
+        </div>
+      </article>
+      <article class="course dark reveal d1" style="--c:var(--blue)">
+        <div class="course-top">
+          <div class="glyph" aria-hidden="true">드</div>
+          <div><h3>K-Drama Korean</h3><div class="ko">드라마로 배우는 한국어</div></div>
+        </div>
+        <p data-ko="짧은 드라마 장면으로 고백, 말다툼, 반말과 존댓말, 그리고 ‘오빠’의 진짜 뜻까지 배워요.">Learn real expressions from short drama scenes: confessions, arguments, 반말 vs 존댓말, and what 오빠 really means.</p>
+        <dl>
+          <dt data-ko="레벨">Level</dt><dd data-ko="초급 2 이상 · 한글 읽기 가능">Beginner 2+ · reads Hangul</dd>
+          <dt data-ko="일정">Schedule</dt><dd data-ko="화요일 오후 7:00–9:00">Tuesdays, 7:00–9:00 PM</dd>
+          <dt data-ko="기간">Length</dt><dd data-ko="8주 · 8회">8 weeks · 8 classes</dd>
+        </dl>
+        <div class="course-foot">
+          <div class="price">CAD $320<small>+ HST</small></div>
+          <a class="btn sm" href="#trial" data-course="drama"><span data-ko="무료로 들어 보기">Try it free</span> <span class="arr" aria-hidden="true">→</span></a>
+        </div>
+      </article>
+      <article class="course reveal" style="--c:var(--yellow)">
+        <div class="course-top">
+          <div class="glyph" aria-hidden="true">급</div>
+          <div><h3>TOPIK Prep</h3><div class="ko">TOPIK 대비반</div></div>
+        </div>
+        <p data-ko="기출 문제 풀이와 실전 모의고사로 준비해요. TOPIK II 반은 매주 쓰기 첨삭까지 받아요.">Past-paper practice and timed mock tests, plus weekly writing feedback for the TOPIK II group.</p>
+        <dl>
+          <dt data-ko="레벨">Level</dt><dd data-ko="TOPIK I·II (목표 1–4급)">TOPIK I &amp; II (target levels 1–4)</dd>
+          <dt data-ko="일정">Schedule</dt><dd data-ko="토요일 오전 10:00–오후 1:00">Saturdays, 10:00 AM–1:00 PM</dd>
+          <dt data-ko="기간">Length</dt><dd data-ko="10주 · 10회">10 weeks · 10 classes</dd>
+        </dl>
+        <div class="course-foot">
+          <div class="price">CAD $450<small>+ HST</small></div>
+          <a class="btn sm" href="#trial" data-course="topik"><span data-ko="무료로 들어 보기">Try it free</span> <span class="arr" aria-hidden="true">→</span></a>
+        </div>
+      </article>
+      <article class="course reveal d1" style="--c:var(--mint)">
+        <div class="course-top">
+          <div class="glyph" aria-hidden="true">놀</div>
+          <div><h3>Kids Weekend Class</h3><div class="ko">어린이 주말반</div></div>
+        </div>
+        <p data-ko="노래, 게임, 만들기, 그림책으로 배워요. 한국계 아이와 처음 배우는 아이는 반을 나눠요.">Songs, games, crafts and storybooks. Heritage speakers and total beginners learn in separate groups.</p>
+        <dl>
+          <dt data-ko="레벨">Level</dt><dd data-ko="6–12세">Ages 6–12</dd>
+          <dt data-ko="일정">Schedule</dt><dd data-ko="토요일 오후 2:00–3:30">Saturdays, 2:00–3:30 PM</dd>
+          <dt data-ko="기간">Length</dt><dd data-ko="12주 · 12회">12 weeks · 12 classes</dd>
+        </dl>
+        <div class="course-foot">
+          <div class="price">CAD $280<small>+ HST</small></div>
+          <a class="btn sm" href="#trial" data-course="kids"><span data-ko="무료로 들어 보기">Try it free</span> <span class="arr" aria-hidden="true">→</span></a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- TEACHERS -->
+<section class="teachers" id="teachers" aria-labelledby="tT">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="reveal">
+        <span class="kicker" data-ko="선생님">Teachers</span>
+        <h2 id="tT" data-ko="한국에서 자란,<br>정말 친절한 선생님들.">Real Koreans.<br>Really patient.</h2>
+      </div>
+      <p class="reveal d1" data-ko="소규모 수업이라 선생님과 금방 친해져요. 이런 분들을 만나게 돼요.">Small classes mean you actually get to know your teacher. Here's who you'll meet.</p>
+    </div>
+    <div class="t-grid">
+      <article class="teacher reveal">
+        <div class="ava" style="background:#FFD9CC">
+          <span class="tag">Busan</span>
+          <svg viewBox="0 0 200 200" aria-hidden="true">
+            <defs><clipPath id="cA"><circle cx="100" cy="100" r="98"/></clipPath></defs>
+            <circle cx="100" cy="100" r="98" fill="#FFF7EC" stroke="#16161D" stroke-width="3"/>
+            <g clip-path="url(#cA)">
+              <path d="M50 96c0-36 22-60 50-60s50 24 50 60v70H50z" fill="#2A2230"/>
+              <path d="M24 204c4-40 34-62 76-62s72 22 76 62z" fill="#3D5AFE" stroke="#16161D" stroke-width="3"/>
+              <path d="M84 142l16 18 16-18" fill="#FFF7EC" stroke="#16161D" stroke-width="3" stroke-linejoin="round"/>
+              <rect x="88" y="118" width="24" height="28" rx="10" fill="#E8B08B"/>
+              <ellipse cx="100" cy="96" rx="34" ry="38" fill="#F6C8A5" stroke="#16161D" stroke-width="3"/>
+              <path d="M64 92c0-28 16-46 37-46 23 0 37 18 36 44-16-3-31-11-39-25-6 14-19 24-34 27z" fill="#2A2230"/>
+              <circle cx="87" cy="101" r="3.8" fill="#16161D"/><circle cx="113" cy="101" r="3.8" fill="#16161D"/>
+              <circle cx="79" cy="113" r="6.5" fill="#FF7A62" opacity=".45"/><circle cx="121" cy="113" r="6.5" fill="#FF7A62" opacity=".45"/>
+              <path d="M91 115q9 8 18 0" fill="none" stroke="#16161D" stroke-width="3" stroke-linecap="round"/>
+              <circle cx="66" cy="110" r="4.5" fill="#FFC83D" stroke="#16161D" stroke-width="2"/><circle cx="134" cy="110" r="4.5" fill="#FFC83D" stroke="#16161D" stroke-width="2"/>
+            </g>
+          </svg>
+        </div>
+        <div>
+          <h3>Minji Seo <span>서민지</span></h3>
+          <p class="role" data-ko="대표 강사 · 한글·회화">Head teacher · Hangul &amp; conversation</p>
+        </div>
+        <p data-ko="부산에서 자라서 가끔 사투리가 튀어나와요. 아무도 받침을 무서워하지 않게 가르치는 게 목표예요.">Grew up in Busan, so expect a little 사투리 (dialect) now and then. Her mission: nobody should be scared of 받침.</p>
+        <div class="chips"><span class="chip" data-ko="한국어 · 영어">Korean · English</span><span class="chip" data-ko="월·수·금">Mon · Wed · Fri</span></div>
+      </article>
+      <article class="teacher reveal d1">
+        <div class="ava" style="background:#D7DDFF">
+          <span class="tag">Seoul</span>
+          <svg viewBox="0 0 200 200" aria-hidden="true">
+            <defs><clipPath id="cB"><circle cx="100" cy="100" r="98"/></clipPath></defs>
+            <circle cx="100" cy="100" r="98" fill="#FFF7EC" stroke="#16161D" stroke-width="3"/>
+            <g clip-path="url(#cB)">
+              <path d="M24 204c4-40 34-62 76-62s72 22 76 62z" fill="#FFC83D" stroke="#16161D" stroke-width="3"/>
+              <path d="M78 146c6 10 14 15 22 15s16-5 22-15" fill="none" stroke="#16161D" stroke-width="3"/>
+              <rect x="88" y="118" width="24" height="28" rx="10" fill="#D9A27C"/>
+              <ellipse cx="100" cy="98" rx="33" ry="37" fill="#EDBA93" stroke="#16161D" stroke-width="3"/>
+              <path d="M66 92c-4-30 14-48 36-48 24 0 38 16 33 44-6-10-20-16-36-16-14 0-26 8-33 20z" fill="#1E1A24"/>
+              <circle cx="86" cy="102" r="10" fill="none" stroke="#16161D" stroke-width="3"/><circle cx="114" cy="102" r="10" fill="none" stroke="#16161D" stroke-width="3"/>
+              <path d="M96 102h8" stroke="#16161D" stroke-width="3"/>
+              <circle cx="86" cy="102" r="3.2" fill="#16161D"/><circle cx="114" cy="102" r="3.2" fill="#16161D"/>
+              <path d="M90 119q10 7 20 0" fill="none" stroke="#16161D" stroke-width="3" stroke-linecap="round"/>
+            </g>
+          </svg>
+        </div>
+        <div>
+          <h3>Doyun Kang <span>강도윤</span></h3>
+          <p class="role" data-ko="드라마 한국어 · TOPIK">K-drama Korean &amp; TOPIK</p>
+        </div>
+        <p data-ko="드라마 자막 번역을 하던 선생님. 드라마를 보다가도 농담이 나오면 멈추고 설명해야 직성이 풀려요.">A former subtitle translator who can't watch a single episode without pausing to explain the joke.</p>
+        <div class="chips"><span class="chip" data-ko="한국어 · 영어">Korean · English</span><span class="chip" data-ko="화·토">Tue · Sat</span></div>
+      </article>
+      <article class="teacher reveal d2">
+        <div class="ava" style="background:#FFEBAD">
+          <span class="tag">Daejeon</span>
+          <svg viewBox="0 0 200 200" aria-hidden="true">
+            <defs><clipPath id="cC"><circle cx="100" cy="100" r="98"/></clipPath></defs>
+            <circle cx="100" cy="100" r="98" fill="#FFF7EC" stroke="#16161D" stroke-width="3"/>
+            <g clip-path="url(#cC)">
+              <circle cx="100" cy="46" r="20" fill="#3A2A22" stroke="#16161D" stroke-width="3"/>
+              <path d="M24 204c4-40 34-62 76-62s72 22 76 62z" fill="#2FD69B" stroke="#16161D" stroke-width="3"/>
+              <path d="M60 164h80" stroke="#16161D" stroke-width="3" stroke-dasharray="2 9" stroke-linecap="round"/>
+              <rect x="88" y="118" width="24" height="28" rx="10" fill="#E8B08B"/>
+              <ellipse cx="100" cy="98" rx="34" ry="37" fill="#F6C8A5" stroke="#16161D" stroke-width="3"/>
+              <path d="M66 98c-2-26 12-42 34-42s36 16 34 42c-8-14-20-20-34-20s-26 6-34 20z" fill="#3A2A22"/>
+              <path d="M128 66l4 8 9 1-7 6 2 9-8-5-8 5 2-9-7-6 9-1z" fill="#FFC83D" stroke="#16161D" stroke-width="2.4" stroke-linejoin="round"/>
+              <path d="M82 102q5-5 10 0M108 102q5-5 10 0" fill="none" stroke="#16161D" stroke-width="3" stroke-linecap="round"/>
+              <circle cx="79" cy="113" r="6.5" fill="#FF7A62" opacity=".45"/><circle cx="121" cy="113" r="6.5" fill="#FF7A62" opacity=".45"/>
+              <path d="M90 114q10 11 20 0z" fill="#16161D"/>
+            </g>
+          </svg>
+        </div>
+        <div>
+          <h3>Hayoung Lim <span>임하영</span></h3>
+          <p class="role" data-ko="어린이 주말반">Kids weekend class</p>
+        </div>
+        <p data-ko="수업을 게임 쇼처럼 진행해요. 비밀 무기는 스티커판과 아주 큰 박수 소리, 짝짝짝!">Runs class like a game show. Her secret weapons: a sticker chart and a very loud 짝짝짝 (clap clap clap).</p>
+        <div class="chips"><span class="chip" data-ko="한국어 · 영어">Korean · English</span><span class="chip" data-ko="토">Sat</span></div>
+      </article>
+    </div>
+    <p class="t-note" data-ko="일러스트로 그린 가상의 선생님이에요.">Illustrated, fictional teachers for this concept project.</p>
+  </div>
+</section>
+
+<!-- TRIAL FORM -->
+<section class="trial" id="trial" aria-labelledby="trT">
+  <div class="wrap trial-box reveal">
+    <div>
+      <span class="kicker" data-ko="무료 체험">Free trial</span>
+      <h2 id="trT" data-ko="첫 수업은<br>무료예요.">Try a class.<br>It's on us.</h2>
+      <p class="sub" data-ko="60분, 결제 정보 없이, 부담 없이. 수업과 요일만 고르면 이메일로 확정해 드려요.">60 minutes, no payment details, no pressure. Pick a course and a day, and we'll confirm by email.</p>
+      <ul class="ticks">
+        <li data-ko="60분 무료 수업">Free 60-minute class</li>
+        <li data-ko="선생님 먼저 만나 보기">Meet your teacher first</li>
+        <li data-ko="간단한 레벨 테스트 포함">Quick level check included</li>
+      </ul>
+    </div>
+    <div class="form-card" id="formCard">
+      <form id="form" novalidate>
+        <div class="f-grid">
+          <div class="field" id="fName">
+            <label for="name" data-ko="이름">Your name</label>
+            <input id="name" name="name" autocomplete="name" placeholder="Alex Kim" data-ko-ph="홍길동">
+            <span class="err" data-ko="이름을 적어 주세요.">Please tell us your name.</span>
+          </div>
+          <div class="field" id="fEmail">
+            <label for="email" data-ko="이메일">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com">
+            <span class="err" data-ko="이메일 주소를 확인해 주세요.">Please check your email address.</span>
+          </div>
+          <div class="field full" id="fCourse">
+            <label for="course" data-ko="수업">Course</label>
+            <select id="course" name="course">
+              <option value="" data-ko="수업을 골라 주세요">Choose a course</option>
+              <option value="hangul" data-ko="한글 2주 완성">Hangul in 2 Weeks</option>
+              <option value="drama" data-ko="드라마로 배우는 한국어">K-Drama Korean</option>
+              <option value="topik" data-ko="TOPIK 대비반">TOPIK Prep</option>
+              <option value="kids" data-ko="어린이 주말반">Kids Weekend Class</option>
+            </select>
+            <span class="err" data-ko="수업을 하나 골라 주세요.">Please choose a course.</span>
+          </div>
+          <div class="field full">
+            <span class="lbl" data-ko="원하는 시간">Preferred time</span>
+            <div class="seg">
+              <input type="radio" name="day" id="d1" value="weekday" checked><label for="d1" data-ko="평일 저녁">Weekday evening</label>
+              <input type="radio" name="day" id="d2" value="satam"><label for="d2" data-ko="토요일 오전">Saturday morning</label>
+              <input type="radio" name="day" id="d3" value="satpm"><label for="d3" data-ko="토요일 오후">Saturday afternoon</label>
+            </div>
+          </div>
+          <div class="field full">
+            <span class="lbl" data-ko="지금 내 한국어는">Your Korean right now</span>
+            <div class="seg">
+              <input type="radio" name="lvl" id="l1" value="0" checked><label for="l1" data-ko="완전 처음">Total zero</label>
+              <input type="radio" name="lvl" id="l2" value="1"><label for="l2" data-ko="한글은 읽어요">I can read Hangul</label>
+              <input type="radio" name="lvl" id="l3" value="2"><label for="l3" data-ko="조금 대화할 수 있어요">I can chat a bit</label>
+            </div>
+          </div>
+          <div class="field full">
+            <label for="msg" data-ko="더 알려 주실 내용 (선택)">Anything we should know? (optional)</label>
+            <textarea id="msg" name="msg" placeholder="e.g. I'm visiting Seoul in March!" data-ko-ph="예: 3월에 서울 여행을 가요!"></textarea>
+          </div>
+        </div>
+        <div class="form-foot">
+          <p class="demo-note" data-ko="콘셉트 사이트의 데모 양식이에요. 입력한 내용은 전송·저장되지 않아요.">Demo form on a concept site. Nothing you type is sent or stored.</p>
+          <button class="btn" type="submit"><span data-ko="무료 수업 신청하기">Book my free class</span> <span class="arr" aria-hidden="true">→</span></button>
+        </div>
+      </form>
+      <div class="success" id="success" role="status" aria-live="polite">
+        <div class="stamp"><svg viewBox="0 0 24 24" fill="none" stroke="#16161D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+        <h3>감사합니다!</h3>
+        <p id="sMsg"></p>
+        <p class="demo-note" id="sNote"></p>
+        <button class="btn ghost sm" type="button" id="again" data-ko="다시 신청하기">Book another</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMETABLE -->
+<section id="timetable" style="padding-top:0" aria-labelledby="ttT">
+  <div class="wrap">
+    <div class="tt-head">
+      <div class="reveal">
+        <span class="kicker" data-ko="시간표">Timetable</span>
+        <h2 id="ttT" data-ko="하나의 일주일.">A week at Hana.</h2>
+        <p data-ko="겨울 학기는 2027년 1월 11일(월)에 시작해요.">Winter term starts Monday, January 11, 2027.</p>
+      </div>
+      <div class="filters reveal d1" role="group" aria-label="Filter classes">
+        <button type="button" data-f="all" aria-pressed="true" data-ko="전체">All</button>
+        <button type="button" data-f="adult" aria-pressed="false" data-ko="성인">Adults</button>
+        <button type="button" data-f="kids" aria-pressed="false" data-ko="어린이">Kids</button>
+        <button type="button" data-f="topik" aria-pressed="false">TOPIK</button>
+      </div>
+    </div>
+    <table class="tt reveal" id="tt">
+      <thead><tr><th data-ko="요일">Day</th><th data-ko="시간">Time</th><th data-ko="수업">Class</th><th data-ko="레벨">Level</th><th data-ko="교실">Room</th></tr></thead>
+      <tbody>
+        <tr data-cat="adult" style="--c:var(--coral)"><td class="day" data-ko="월">Mon</td><td class="time" data-ko="오후 7:00–8:30">7:00–8:30 PM</td><td class="cls" data-ko="한글 2주 완성">Hangul in 2 Weeks</td><td class="lvl" data-ko="완전 처음">Absolute beginner</td><td class="rm"><span class="room">하</span></td></tr>
+        <tr data-cat="adult" style="--c:var(--blue)"><td class="day" data-ko="화">Tue</td><td class="time" data-ko="오후 7:00–9:00">7:00–9:00 PM</td><td class="cls" data-ko="드라마로 배우는 한국어">K-Drama Korean</td><td class="lvl" data-ko="초급 2 이상">Beginner 2+</td><td class="rm"><span class="room">나</span></td></tr>
+        <tr data-cat="adult" style="--c:var(--coral)"><td class="day" data-ko="수">Wed</td><td class="time" data-ko="오후 7:00–8:30">7:00–8:30 PM</td><td class="cls" data-ko="한글 2주 완성">Hangul in 2 Weeks</td><td class="lvl" data-ko="완전 처음">Absolute beginner</td><td class="rm"><span class="room">하</span></td></tr>
+        <tr data-cat="adult" style="--c:var(--lilac)"><td class="day" data-ko="목">Thu</td><td class="time" data-ko="오후 7:00–8:30">7:00–8:30 PM</td><td class="cls" data-ko="회화 클럽 (수강생 무료)">Conversation Club (free for students)</td><td class="lvl" data-ko="모든 레벨">All levels</td><td class="rm"><span class="room">라</span></td></tr>
+        <tr data-cat="adult" style="--c:var(--coral)"><td class="day" data-ko="금">Fri</td><td class="time" data-ko="오후 7:00–8:30">7:00–8:30 PM</td><td class="cls" data-ko="한글 2주 완성">Hangul in 2 Weeks</td><td class="lvl" data-ko="완전 처음">Absolute beginner</td><td class="rm"><span class="room">하</span></td></tr>
+        <tr data-cat="topik adult" style="--c:var(--yellow)"><td class="day" data-ko="토">Sat</td><td class="time" data-ko="오전 10:00–오후 1:00">10:00 AM–1:00 PM</td><td class="cls" data-ko="TOPIK 대비반">TOPIK Prep</td><td class="lvl" data-ko="TOPIK I·II">TOPIK I &amp; II</td><td class="rm"><span class="room">나</span></td></tr>
+        <tr data-cat="kids" style="--c:var(--mint)"><td class="day" data-ko="토">Sat</td><td class="time" data-ko="오후 2:00–3:30">2:00–3:30 PM</td><td class="cls" data-ko="어린이 주말반">Kids Weekend Class</td><td class="lvl" data-ko="6–12세">Ages 6–12</td><td class="rm"><span class="room">하</span></td></tr>
+        <tr class="closed" data-cat="none" style="--c:#E8DCCB"><td class="day" data-ko="일">Sun</td><td class="time">—</td><td class="cls" data-ko="휴무 · 푹 쉬어요">Closed · rest day</td><td class="lvl"></td><td class="rm"></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" style="padding-top:0" aria-labelledby="fT">
+  <div class="wrap faq-grid">
+    <div class="side reveal">
+      <span class="kicker" data-ko="자주 묻는 질문">FAQ</span>
+      <h2 id="fT" data-ko="궁금한 점,<br>답해 드려요.">Questions,<br>answered.</h2>
+      <p data-ko="다른 궁금한 점은 체험 수업 신청서에 적어 주세요.">Something else on your mind? Add it to your trial booking and we'll answer.</p>
+      <a class="btn ghost" href="#trial" data-ko="체험 수업 신청">Book a trial</a>
+    </div>
+    <div class="acc reveal d1" id="acc">
+      <details open>
+        <summary><span data-ko="한글을 전혀 못 읽어요. 그래도 들을 수 있나요?">I can't read Hangul at all. Can I still join?</span><span class="pm" aria-hidden="true"></span></summary>
+        <div class="ans" data-ko="네, ‘한글 2주 완성’이 바로 그런 분을 위한 수업이에요. 한글은 기본 글자 24개로 이루어진 규칙적인 문자라서, 첫 주가 끝날 즈음이면 간단한 단어를 소리 내어 읽을 수 있어요.">Yes. Hangul in 2 Weeks is made exactly for you. Hangul has 24 basic letters that follow a clear system, so you'll be sounding out simple words by the end of week one.</div>
+      </details>
+      <details>
+        <summary><span data-ko="체험 수업은 정말 무료인가요?">Is the trial class really free?</span><span class="pm" aria-hidden="true"></span></summary>
+        <div class="ans" data-ko="네. 60분 수업 한 번이고, 결제 정보는 필요 없어요. 등록하시면 맞는 레벨을 함께 골라 드려요.">Yes. It's one 60-minute class and we never ask for payment details. If you enrol afterwards, we'll help you choose the right level.</div>
+      </details>
+      <details>
+        <summary><span data-ko="온라인 수업도 있나요?">Do you offer online classes?</span><span class="pm" aria-hidden="true"></span></summary>
+        <div class="ans" data-ko="수업은 코리아타운 교실에서 대면으로 진행해요. TOPIK 대비반은 실시간 온라인 자리도 있으니 신청할 때 물어봐 주세요.">Classes run in person in Koreatown. TOPIK Prep also has a few live online seats, so just ask when you book.</div>
+      </details>
+      <details>
+        <summary><span data-ko="수업에 빠지면 어떻게 하나요?">What if I miss a class?</span><span class="pm" aria-hidden="true"></span></summary>
+        <div class="ans" data-ko="모든 수업에 정리 노트와 짧은 연습 영상이 있어요. 목요일 회화 클럽에 와서 따라잡아도 돼요.">Every class comes with notes and a short practice video. You can also drop into Thursday's Conversation Club to catch up.</div>
+      </details>
+      <details>
+        <summary><span data-ko="TOPIK 대비반은 몇 급을 준비하나요?">Which TOPIK levels does the prep course cover?</span><span class="pm" aria-hidden="true"></span></summary>
+        <div class="ans" data-ko="TOPIK I(1–2급)과 TOPIK II 4급까지 준비해요. 첫 주 레벨 테스트 후 두 반으로 나눠요.">TOPIK I (levels 1–2) and TOPIK II up to level 4. After a level check in week one, we split into two groups.</div>
+      </details>
+      <details>
+        <summary><span data-ko="아이 수업 동안 부모님이 기다릴 수 있나요?">Can parents wait during the kids class?</span><span class="pm" aria-hidden="true"></span></summary>
+        <div class="ans" data-ko="그럼요. 라운지에 커피가 있고, 네, 한국 과자도 있어요.">Of course. There's coffee in the lounge and, yes, Korean snacks too.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- VISIT -->
+<section class="visit" id="visit" aria-labelledby="vT">
+  <div class="wrap visit-grid">
+    <div class="info reveal">
+      <div>
+        <span class="kicker" data-ko="오시는 길">Visit</span>
+        <h2 id="vT" data-ko="‘안녕’ 하러<br>놀러 오세요.">Come say <span class="han">안녕</span>.</h2>
+      </div>
+      <address class="addr">Hana Korean Academy, 2F<br>123 Hana Lane, Toronto, <span style="white-space:nowrap">ON M6G 0X0</span><small data-ko="지하철 2호선 Christie역에서 걸어서 5분">5-minute walk from Christie Station (Line 2)</small></address>
+      <dl class="hours">
+        <dt data-ko="월–금">Mon–Fri</dt><dd data-ko="오후 4:00–10:00">4:00–10:00 PM</dd>
+        <dt data-ko="토">Sat</dt><dd data-ko="오전 9:30–오후 6:00">9:30 AM–6:00 PM</dd>
+        <dt data-ko="일">Sun</dt><dd data-ko="휴무">Closed</dd>
+        <dt data-ko="연락">Say hi</dt><dd>hello@example.com<br>(416) 555-0142</dd>
+      </dl>
+      <a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Koreatown%2C%20Toronto" target="_blank" rel="noopener"><span data-ko="구글 지도에서 보기">Open in Google Maps</span> <span class="arr" aria-hidden="true">↗</span></a>
+      <p class="fine" data-ko="가상의 주소예요. 지도 링크는 토론토 코리아타운을 보여 줘요.">Fictional address for this concept. The map link opens Toronto's Koreatown.</p>
+    </div>
+    <div class="map reveal d1" aria-label="Illustrated map of the area around the school">
+      <svg viewBox="0 0 640 460" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <rect width="640" height="460" fill="#EFE6D6"/>
+        <g fill="#E3D6C1">
+          <rect x="20" y="20" width="150" height="150" rx="14"/><rect x="200" y="20" width="160" height="150" rx="14"/><rect x="390" y="20" width="230" height="150" rx="14"/>
+          <rect x="20" y="250" width="150" height="190" rx="14"/><rect x="390" y="250" width="110" height="190" rx="14"/><rect x="530" y="250" width="90" height="190" rx="14"/>
+        </g>
+        <rect x="200" y="250" width="160" height="190" rx="14" fill="#A9DDB9"/>
+        <g fill="#8CCB9F"><circle cx="240" cy="300" r="14"/><circle cx="300" cy="330" r="18"/><circle cx="250" cy="390" r="16"/><circle cx="320" cy="400" r="12"/></g>
+        <text x="280" y="372" text-anchor="middle" font-family="Pretendard Variable, sans-serif" font-size="13" font-weight="700" fill="#2E6B45">Christie Pits Park</text>
+        <rect x="0" y="182" width="640" height="56" fill="#FFFDF8"/>
+        <rect x="174" y="0" width="22" height="460" fill="#FFFDF8"/>
+        <rect x="364" y="0" width="22" height="460" fill="#FFFDF8"/>
+        <rect x="504" y="240" width="22" height="220" fill="#FFFDF8"/>
+        <line x1="0" y1="210" x2="640" y2="210" stroke="#2C9B4C" stroke-width="6" stroke-dasharray="1 0"/>
+        <line x1="0" y1="210" x2="640" y2="210" stroke="#FFFDF8" stroke-width="2" stroke-dasharray="10 10"/>
+        <text x="214" y="201" font-family="Bricolage Grotesque, sans-serif" font-size="15" font-weight="800" fill="#16161D">BLOOR ST W</text>
+        <text x="190" y="120" transform="rotate(-90 190 120)" font-family="Bricolage Grotesque, sans-serif" font-size="12" font-weight="800" fill="#5D5A66">CHRISTIE ST</text>
+        <g transform="translate(185 210)"><circle r="14" fill="#2C9B4C" stroke="#16161D" stroke-width="3"/><text y="5" text-anchor="middle" font-family="Pretendard Variable, sans-serif" font-size="13" font-weight="800" fill="#fff">2</text></g>
+        <text x="206" y="232" font-family="Pretendard Variable, sans-serif" font-size="12.5" font-weight="700" fill="#16161D">Christie Station</text>
+        <g transform="translate(455 170)">
+          <ellipse cx="0" cy="44" rx="22" ry="6" fill="#16161D" opacity=".18"/>
+          <g class="pin">
+            <path d="M0 40C-18 16-30 2-30-14a30 30 0 0 1 60 0C30 2 18 16 0 40z" fill="#FF5B3A" stroke="#16161D" stroke-width="3"/>
+            <text y="-6" text-anchor="middle" font-family="Black Han Sans, sans-serif" font-size="19" fill="#fff">하나</text>
+          </g>
+        </g>
+        <g transform="translate(372 74)"><rect width="168" height="46" rx="12" fill="#FFFDF8" stroke="#16161D" stroke-width="2.5"/><text x="84" y="20" text-anchor="middle" font-family="Pretendard Variable, sans-serif" font-size="12" font-weight="800" fill="#16161D">Hana Korean Academy</text><text x="84" y="36" text-anchor="middle" font-family="Pretendard Variable, sans-serif" font-size="11" font-weight="600" fill="#5D5A66">2F · 123 Hana Lane</text></g>
+        <g transform="translate(540 400)"><circle r="22" fill="#FFFDF8" stroke="#16161D" stroke-width="2.5"/><path d="M0-14l6 14h-12z" fill="#FF5B3A"/><text y="16" text-anchor="middle" font-family="Pretendard Variable, sans-serif" font-size="9" font-weight="800">N</text></g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="f-top">
+      <div class="f-brand">
+        <a class="logo" href="#top"><span class="logo-mark" aria-hidden="true">하나</span><span class="logo-text">Hana Korean<small>Academy · Toronto</small></span></a>
+        <p data-ko="토론토 코리아타운의 작은 한국어·한국 문화 학원. 진짜 한국어를, 한 번에 한 대화씩.">A small Korean language and culture school in Toronto's Koreatown. Real Korean, one conversation at a time.</p>
+      </div>
+      <div><h4 data-ko="수업">Learn</h4><ul><li><a href="#courses" data-ko="한글 2주 완성">Hangul in 2 Weeks</a></li><li><a href="#courses" data-ko="드라마 한국어">K-Drama Korean</a></li><li><a href="#courses" data-ko="TOPIK 대비반">TOPIK Prep</a></li><li><a href="#courses" data-ko="어린이 주말반">Kids Weekend Class</a></li></ul></div>
+      <div><h4 data-ko="학원">School</h4><ul><li><a href="#teachers" data-ko="선생님">Teachers</a></li><li><a href="#timetable" data-ko="시간표">Timetable</a></li><li><a href="#faq">FAQ</a></li><li><a href="#visit" data-ko="오시는 길">Visit</a></li></ul></div>
+      <div><h4 data-ko="연락">Contact</h4><ul><li>hello@example.com</li><li>(416) 555-0142</li><li><a href="#trial" data-ko="무료 체험 신청 →">Book a free trial →</a></li></ul></div>
+    </div>
+    <div class="giant" aria-hidden="true">하나<span>.</span></div>
+    <div class="f-bot">
+      <span data-ko="© 2026 하나 한국어 학원(가상). 콘셉트 웹사이트 디자인: <b>Hangul House</b>">© 2026 Hana Korean Academy (fictional). Concept website designed by <b>Hangul House</b>.</span>
+      <span data-ko="이름, 주소, 연락처는 모두 예시예요.">All names, addresses and contacts are placeholders.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var root=document.documentElement; root.classList.add('js');
+  var params=new URLSearchParams(location.search);
+  var STILL=params.has('still');
+  if(STILL) root.classList.add('still');
+  var lang='en';
+
+  /* ribbon */
+  document.getElementById('ribbonX').addEventListener('click',function(){document.getElementById('ribbon').classList.add('gone')});
+
+  /* nav */
+  var nav=document.getElementById('nav'), burger=document.getElementById('burger');
+  burger.addEventListener('click',function(){var o=nav.classList.toggle('open');burger.setAttribute('aria-expanded',o);burger.setAttribute('aria-label',o?'Close menu':'Open menu')});
+  document.querySelectorAll('#links a').forEach(function(a){a.addEventListener('click',function(){nav.classList.remove('open');burger.setAttribute('aria-expanded','false')})});
+  var onScroll=function(){nav.classList.toggle('scrolled',window.scrollY>10)}; window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
+
+  /* reveal */
+  var rv=document.querySelectorAll('.reveal');
+  if(STILL||!('IntersectionObserver' in window)){rv.forEach(function(e){e.classList.add('in')})}
+  else{var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -40px 0px'});rv.forEach(function(e){io.observe(e)})}
+
+  /* language toggle */
+  function setLang(l){
+    lang=l; root.lang=l;
+    document.querySelectorAll('[data-ko]').forEach(function(el){
+      if(el.dataset.en===undefined) el.dataset.en=el.innerHTML;
+      el.innerHTML = l==='ko' ? el.dataset.ko : el.dataset.en;
+    });
+    document.querySelectorAll('[data-ko-ph]').forEach(function(el){
+      if(el.dataset.enPh===undefined) el.dataset.enPh=el.placeholder;
+      el.placeholder = l==='ko' ? el.dataset.koPh : el.dataset.enPh;
+    });
+    document.querySelectorAll('.lang button').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.lang===l)});
+    try{localStorage.setItem('hana-lang',l)}catch(e){}
+    if(document.getElementById('formCard').classList.contains('done')) fillSuccess();
+  }
+  document.querySelectorAll('.lang button').forEach(function(b){b.addEventListener('click',function(){setLang(b.dataset.lang)})});
+  var startLang=params.get('lang'); if(!startLang){try{startLang=localStorage.getItem('hana-lang')}catch(e){}}
+  if(startLang==='ko') setLang('ko');
+
+  /* hero: speech bubble */
+  var phrases=[['대박!','dae-bak · “awesome!”'],['화이팅!','hwa-i-ting · “you got this!”'],['진짜?','jin-jja · “really?”'],['맛있다!','ma-sit-da · “so good!”'],['배고파','bae-go-pa · “I\'m hungry”']];
+  var bi=0, bubble=document.getElementById('bubble');
+  if(!STILL) setInterval(function(){bubble.classList.add('out');setTimeout(function(){bi=(bi+1)%phrases.length;document.getElementById('bW').textContent=phrases[bi][0];document.getElementById('bR').textContent=phrases[bi][1];bubble.classList.remove('out')},320)},2600);
+
+  /* hero: jamo builder */
+  var syl=[['ㅎ','ㅏ','ㄴ','한','<em>h + a + n = han</em> · as in 한국, “Korea”'],['ㄱ','ㅡ','ㄹ','글','<em>g + eu + l = geul</em> · “writing”, as in 한글'],['ㅁ','ㅏ','ㄹ','말','<em>m + a + l = mal</em> · “words”, and also “horse”'],['ㅂ','ㅏ','ㅂ','밥','<em>b + a + p = bap</em> · “rice”, or simply “a meal”']];
+  var jamo=document.getElementById('jamo'), si=0;
+  function setSyl(i){var s=syl[i];['j1','j2','j3','j4'].forEach(function(id,k){document.getElementById(id).textContent=s[k]});document.getElementById('jcap').innerHTML=s[4]}
+  function cycle(){
+    jamo.classList.remove('s1','s2','s3','s4');
+    setTimeout(function(){
+      setSyl(si);
+      [['s1',150],['s2',650],['s3',1150],['s4',1750]].forEach(function(p){setTimeout(function(){jamo.classList.add(p[0])},p[1])});
+      si=(si+1)%syl.length;
+    },380);
+  }
+  if(!STILL){jamo.classList.add('run');cycle();setInterval(cycle,4600)}
+
+  /* word deck */
+  var words=[
+    {ko:'안녕하세요',rom:'an-nyeong-ha-se-yo',mean:'Hello',note:'polite, for almost anyone',tip:"Use it with anyone you don't know well. A small nod of the head is the perfect add-on."},
+    {ko:'감사합니다',rom:'gam-sa-ham-ni-da',mean:'Thank you',note:'polite',tip:'Say it to staff, teachers and elders. With close friends, 고마워 (go-ma-wo) is enough.'},
+    {ko:'맛있어요',rom:'ma-si-sseo-yo',mean:"It's delicious",note:'polite',tip:'Say it to the owner of a Korean restaurant and watch the side dishes keep coming.'},
+    {ko:'괜찮아요',rom:'gwaen-cha-na-yo',mean:"It's okay",note:"also “I'm fine” or “no, thanks”",tip:'One phrase, three meanings. The tone of voice and the situation tell you which one.'},
+    {ko:'화이팅',rom:'hwa-i-ting',mean:'You got this!',note:'cheering someone on',tip:'Borrowed from the English word “fighting”. Say it to a friend before an exam or a big game.'}
+  ];
+  var wi=0, flip=document.getElementById('flip'), back=flip.querySelector('.back');
+  function showWord(i){var w=words[i];
+    document.getElementById('wKo').textContent=w.ko;document.getElementById('wKo2').textContent=w.ko;
+    document.getElementById('wRom').textContent=w.rom;
+    document.getElementById('wMean').innerHTML=w.mean+'<small>'+w.note+'</small>';
+    document.getElementById('wTip').textContent=w.tip;
+    document.getElementById('wNo').textContent=('0'+(i+1)).slice(-2);
+    document.getElementById('count').textContent=(i+1)+' / '+words.length;
+  }
+  function doFlip(){var f=flip.classList.toggle('flipped');flip.setAttribute('aria-pressed',f);back.setAttribute('aria-hidden',!f)}
+  flip.addEventListener('click',doFlip);
+  flip.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();doFlip()}});
+  document.getElementById('flipBtn').addEventListener('click',doFlip);
+  document.getElementById('nextBtn').addEventListener('click',function(){
+    var wasFlipped=flip.classList.contains('flipped');
+    if(wasFlipped){flip.classList.remove('flipped');flip.setAttribute('aria-pressed','false');back.setAttribute('aria-hidden','true')}
+    setTimeout(function(){wi=(wi+1)%words.length;showWord(wi)},wasFlipped?380:0);
+  });
+  document.getElementById('sayBtn').addEventListener('click',function(){
+    if(!('speechSynthesis' in window)) return;
+    var u=new SpeechSynthesisUtterance(words[wi].ko);u.lang='ko-KR';u.rate=.85;
+    var v=speechSynthesis.getVoices().filter(function(x){return /^ko/i.test(x.lang)})[0]; if(v) u.voice=v;
+    speechSynthesis.cancel();speechSynthesis.speak(u);
+  });
+
+  /* course buttons preselect */
+  var sel=document.getElementById('course');
+  document.querySelectorAll('[data-course]').forEach(function(a){a.addEventListener('click',function(){sel.value=a.dataset.course;document.getElementById('fCourse').classList.remove('bad')})});
+
+  /* form */
+  var form=document.getElementById('form'), card=document.getElementById('formCard'), last={};
+  function fillSuccess(){
+    var c=sel.querySelector('option[value="'+last.course+'"]'); var cname=c?c.textContent:'';
+    if(lang==='ko'){
+      document.getElementById('sMsg').innerHTML='<b>'+esc(last.name)+'</b>님, <b>'+esc(cname)+'</b> 무료 체험 수업 신청이 완료됐어요. 실제 사이트라면 <b>'+esc(last.email)+'</b>(으)로 확인 메일을 보내 드려요.';
+      document.getElementById('sNote').textContent='데모 화면이에요. 아무것도 전송되지 않았어요.';
+    } else {
+      document.getElementById('sMsg').innerHTML="You're booked in for a free <b>"+esc(cname)+'</b> trial, <b>'+esc(last.name)+'</b>. On a live site, a confirmation would go to <b>'+esc(last.email)+'</b>.';
+      document.getElementById('sNote').textContent='This is a demo. Nothing was sent.';
+    }
+  }
+  function esc(s){return String(s).replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var name=document.getElementById('name').value.trim(), email=document.getElementById('email').value.trim(), course=sel.value, ok=true;
+    var chk=[['fName',name.length>0],['fEmail',/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)],['fCourse',!!course]];
+    chk.forEach(function(c){var f=document.getElementById(c[0]);f.classList.toggle('bad',!c[1]);if(!c[1])ok=false});
+    if(!ok){var first=form.querySelector('.field.bad input, .field.bad select');if(first)first.focus();return}
+    last={name:name,email:email,course:course};
+    fillSuccess(); card.classList.add('done');
+    card.scrollIntoView({behavior:STILL?'auto':'smooth',block:'center'});
+  });
+  ['name','email','course'].forEach(function(id){var el=document.getElementById(id);el.addEventListener('input',function(){el.closest('.field').classList.remove('bad')});el.addEventListener('change',function(){el.closest('.field').classList.remove('bad')})});
+  document.getElementById('again').addEventListener('click',function(){form.reset();card.classList.remove('done');document.getElementById('name').focus()});
+
+  /* timetable filter */
+  var rows=document.querySelectorAll('#tt tbody tr');
+  document.querySelectorAll('.filters button').forEach(function(b){b.addEventListener('click',function(){
+    var f=b.dataset.f;
+    document.querySelectorAll('.filters button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});
+    rows.forEach(function(r){var cats=r.dataset.cat.split(' ');var hit=f!=='all'&&cats.indexOf(f)>-1;r.classList.toggle('dim',f!=='all'&&!hit);r.classList.toggle('hit',hit)});
+  })});
+
+  /* faq: one open at a time */
+  var dets=document.querySelectorAll('#acc details');
+  dets.forEach(function(d){d.addEventListener('toggle',function(){if(d.open)dets.forEach(function(o){if(o!==d)o.open=false})})});
+})();
+</script>
+</body>
+</html>
