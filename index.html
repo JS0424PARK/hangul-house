@@ -307,7 +307,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 
 <section id="pricing" style="padding-top:20px"><div class="wrap">
  <div class="sec-head reveal"><div><span class="eyebrow"><i></i>Pricing</span><h2>Clear prices.<br><em>Free</em> quotes.</h2></div>
- <p>Starting prices for a typical project. Bigger or rush jobs get a custom quote before any payment. Orders run through Fiverr or Upwork, so your payment is protected.</p></div>
+ <p>Starting prices for a typical project. Bigger or rush jobs get a custom quote before any payment. Orders run through Fiverr, so your payment is protected.</p></div>
  <div class="price-box">
   <div class="plist reveal">
    <div class="pi"><div><b>Bilingual poster, flyer or menu page</b><small>1 design · KO + EN · print + social sizes</small></div><div class="p"><span>from</span>$20</div></div>
@@ -334,15 +334,15 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
   <details><summary>Do you use AI?</summary><p>Yes, as a tool for speed and early drafts, like most modern studios. Every design and every word is directed, edited and finalized by me. If you need strictly no-AI work, tell me before ordering and I’ll tell you honestly whether it’s a fit.</p></details>
   <details><summary>What files will I get?</summary><p>PNG and print-ready PDF for print and social pieces, SVG where useful, and HTML/CSS (or a live link) for websites. I don’t deliver Photoshop (PSD) or Illustrator (AI) source files.</p></details>
   <details><summary>Can you translate my whole website or app?</summary><p>Landing pages and key screens, yes. For large sites or ongoing app localization, send the scope and I’ll quote it.</p></details>
-  <details><summary>How do I pay?</summary><p>Through Fiverr or Upwork. Your payment is held by the platform until you’re happy with the delivery.</p></details>
+  <details><summary>How do I pay?</summary><p>Through Fiverr. Your payment is held by Fiverr until you’re happy with the delivery.</p></details>
  </div>
 </div></section>
 
 <div class="final" id="contact"><div class="bgko" aria-hidden="true">시작</div><div class="wrap" style="position:relative">
  <span class="eyebrow" style="color:rgba(255,255,255,.85)"><i style="background:#fff"></i>Let’s start</span>
  <h2>Ready to speak to<br><em>Korean</em> customers?</h2>
- <p>Send your brief on Fiverr or Upwork. Quotes are free and replies come in clear English.</p>
- <div class="cta-row"><a class="btn solid" id="cta-fiverr" href="#" target="_blank" rel="noopener">Order on Fiverr <span class="arr">→</span></a><a class="btn ghost" id="cta-upwork" href="#" target="_blank" rel="noopener">Hire on Upwork</a></div>
+ <p>Send your brief on Fiverr. Quotes are free and replies come in clear English.</p>
+ <div class="cta-row"><a class="btn solid" id="cta-fiverr" href="#" target="_blank" rel="noopener">Order on Fiverr <span class="arr">→</span></a></div>
 </div></div>
 </main>
 <footer><div class="wrap"><span>© 2026 Hangul House · 한글하우스 · Made in Korea</span><span>Korea Standard Time (UTC+9)</span></div></footer>
@@ -354,8 +354,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 const LINKS={fiverr:"https://www.fiverr.com/hangulhouse",upwork:""};
 const cf=document.getElementById('cta-fiverr'),cu=document.getElementById('cta-upwork');
 if(LINKS.fiverr)cf.href=LINKS.fiverr;else cf.style.display='none';
-if(LINKS.upwork)cu.href=LINKS.upwork;else cu.style.display='none';
-if(!LINKS.fiverr&&!LINKS.upwork){const p=document.querySelector('#contact p');p.textContent='Fiverr & Upwork profiles are opening this week. Quotes are free and replies come in clear English.';}
+if(cu){if(LINKS.upwork)cu.href=LINKS.upwork;else cu.style.display='none';}
+if(!LINKS.fiverr&&!LINKS.upwork){const p=document.querySelector('#contact p');p.textContent='Our Fiverr profile is opening this week. Quotes are free and replies come in clear English.';}
 document.querySelectorAll('.js-hire').forEach(a=>{if(LINKS.fiverr){a.href=LINKS.fiverr;a.target='_blank'}});
 // marquee
 const words=[['Localization','현지화'],['Posters','포스터'],['Menus','메뉴판'],['Wedding invitations','청첩장'],['Landing pages','랜딩페이지'],['Instagram carousels','카드뉴스'],['Detail pages','상세페이지'],['Banners','배너']];
